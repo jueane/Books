@@ -1,0 +1,578 @@
+中文
+切换输入法引擎
+
+im-switch -c
+
+转换文件名由GBK为UTF8
+
+sudo apt-get install convmv
+convmv -r -f cp936 -t utf8 --notest --nosmart *
+
+批量转换src目录下的所有文件内容由GBK到UTF8
+
+find src -type d -exec mkdir -p utf8/{} \;
+find src -type f -exec iconv -f GBK -t UTF-8 {} -o utf8/{} \;
+mv utf8/* src
+rm -fr utf8
+
+转换文件内容由GBK到UTF8
+
+iconv -f gbk -t utf8 $i > newfile
+
+转换 mp3 标签编码
+
+sudo apt-get install python-mutagen
+find . -iname '*.mp3' -execdir mid3iconv -e GBK {} \;
+
+或者使用图形界面工具“小K”，具体请参考解决文件名mp3标签和文本文件内容的乱码问题
+控制台下显示中文
+
+sudo apt-get install zhcon
+使用时，输入zhcon即可
+
+更具体的输入：zhcon --utf8 --drv=vga
+
+zhcon是个外挂的控制平台,也就是像US-DOS那样是额外安装的软件,装完后是需要驱动才能进去的，不然有可能死机; 当然驱动什么的在你sudo apt-get install zhcon的时候就已经安装了; 你所需要的是在进zhcon时要申明你所用的驱动,而zhcon在安装时,就装了3种驱动:vga,framebuffer,libggi,而我们一般都是用的第一种驱动,因为比较方便简单,而那2钟驱动.很麻烦,我也就没改过.好了说了这么多该告诉各位怎么进入zhcon了；运行时需输入：zhcon --utf8 --drv=vga
+lftp 登录远程Windows中文FTP　
+
+lftp :~>set ftp:charset GBK
+lftp :~>set file:charset UTF-8
+
+java6 的安装和中文设置
+
+sudo apt-get install openjdk-6-jdk openjdk-6-doc openjdk-6-jre openjdk-6-jre-headless openjdk-6-jre-lib
+sudo apt-get remove ttf-kochi-gothic ttf-kochi-mincho ttf-unfonts ttf-unfonts-core
+sudo mkdir -p /usr/lib/jvm/java-6-openjdk/jre/lib/fonts/fallback
+sudo ln -s /usr/share/fonts/truetype/arphic/uming.ttc /usr/lib/jvm/java-6-openjdk/jre/lib/fonts/fallback
+
+PDF 文件乱码
+
+sudo apt-get install xpdf-chinese-simplified xpdf-chinese-traditional poppler-data
+
+Flash中文乱码
+
+sudo gedit /etc/fonts/conf.d/49-sansserif.conf 
+将倒数第四行 <string>sans-serif</string>
+改为 <string>文泉驿正黑</string>
+保存即可，重启firefox
+
+增加农历
+
+sudo apt-get install lunar-applet
+鼠标点击面板右键 -> 添加到面板 -> 农历日期
+
+unzip 中文文件名乱码
+
+unzip -O CP936 xxx.zip (用GBK, GB18030也可以)
+ 或
+/etc/environment中加入2行
+UNZIP="-O CP936"
+ZIPINFO="-O CP936"
+
+文件管理
+一屏查看文件内容
+
+cat 文件名
+
+分页查看文件内容
+
+more 文件名
+
+可控分页查看文件内容
+
+less 文件名
+
+带行号显示文件的内容
+
+nl 文件名
+
+去除文件中的行号
+
+cut -c 5- a.py
+
+根据字符串匹配来查看文件部分内容
+
+grep 字符串 文件名
+
+显示包含或者不包含字符串的文件名
+
+grep -l -r 字符串 路径　#显示内容包含字符串的文件名
+grep -L -r 字符串 路径　#显示内容不包含字符串的文件名
+
+快速查找某个文件
+
+whereis filename
+find 目录 -name 文件名
+locate 文件名 # 注意，为了得到更好的效果，运行前可以更新下数据库，运行 sudo updatedb 即可，但这个命令每隔一段时间会自动运行，所以不用太在意
+
+创建两个空文件
+
+touch file1 file2
+
+递归式创建一些嵌套目录
+
+mkdir –p /tmp/xxs/dsd/efd
+
+递归式删除嵌套目录
+
+rm –fr /tmp/xxs
+
+回当前用户的宿主目录
+
+cd ~
+# 或者更简单的
+cd
+
+查看当前所在目录的绝对路经
+
+pwd
+
+列出当前目录下的所有文件,包括以.开头的隐含文件
+
+ls -a
+
+移动路径下的文件并改名
+
+mv 路径/文件  /新路径/新文件名
+
+复制文件或者目录
+
+cp -av 原文件或原目录 新文件或新目录
+
+查看文件类型
+
+file filename
+
+对比两个文件之间的差异　
+
+diff file1 file2
+
+显示xxx文件倒数6行的内容
+
+tail -6 xxx
+
+让tail不停地读取最新的内容
+
+tail -10f /var/log/apache2/access.log
+
+或者
+
+tailf /var/log/apache2/access.log
+
+查看文件中间的第五行（含）到第10行（含）的内容
+
+sed -n '5,10p' /var/log/apache2/access.log
+
+数据库
+mysql的数据库存放路径
+
+/var/lib/mysql
+
+从mysql中导出和导入数据
+
+mysqldump 数据库名 > 文件名 #导出数据库
+mysqladmin create 数据库名 #建立数据库
+mysql 数据库名 < 文件名 #导入数据库
+
+忘了mysql的root口令怎么办
+
+sudo /etc/init.d/mysql stop
+sudo mysqld_safe --skip-grant-tables &
+sudo mysqladmin -u user password 'newpassword
+sudo mysqladmin flush-privileges
+
+修改mysql的root口令
+
+sudo mysqladmin -u root -p password '你的新密码'
+
+如何优化mysql
+
+wget  http://www.day32.com/MySQL/tuning-primer.sh
+chmod +x tuning-primer.sh
+./tuning-primer.sh
+
+常用mysql管理语句
+
+show table status;  #查询表状态
+show full processlist;  #查询mysql进程
+alter table site_stats engine=InnoDB;   #转换表为InnoDB类型，转表锁为行锁。
+show variables;  ＃查看mysql 变量
+
+控制
+如何使用命令关闭显示器
+
+xset dpms force off
+
+设置CPU的频率
+
+sudo apt-get install cpufrequtils 
+#查看cpu当前频率信息
+sudo cpufreq-info 
+设置模式,对应于{最省电（最低频率），用户控制，最高或最低，正常，最大性能} 
+cpufreq-set -g {powersave, userspace, ondemand, conservative, performance}
+
+命令关机
+
+sudo halt
+sudo shutdown -h now              #现在关机
+sudo shutdown -h 23:00           #晚上11点自动关机
+sudo shutdown -h +60          #60分钟后关机
+
+命令重启电脑
+
+sudo reboot
+sudo shutdown -r now
+
+如何修改ssh登录提示
+
+sudo gedit  /etc/motd
+
+如何关闭ssh登录提示
+
+sudo gedit  /etc/ssh/sshd_config 修改这一行为： PrintLastLog no
+
+如何使用命令关闭笔记本的触摸板
+
+synclient touchpadoff=1
+那么开启触摸板就是：
+synclient touchpadoff=0
+
+统计
+统计最常用的10条命令
+
+history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
+
+统计每个单词的出现频率，并排序
+
+awk '{arr[$1]+=1 }END{for(i in arr){print arr[i]"\t"i}}' FILE_NAME | sort -rn
+
+统计80端口的连接个数并按照从大到小排列
+
+netstat -na|grep :80|awk '{print $5}'|awk -F: '{print $1}'|sort|uniq -c|sort -r -n
+
+ 
+
+数据库
+mysql的数据库存放路径
+
+/var/lib/mysql
+
+从mysql中导出和导入数据
+
+mysqldump 数据库名 > 文件名 #导出数据库
+mysqladmin create 数据库名 #建立数据库
+mysql 数据库名 < 文件名 #导入数据库
+
+忘了mysql的root口令怎么办
+
+sudo /etc/init.d/mysql stop
+sudo mysqld_safe --skip-grant-tables &
+sudo mysqladmin -u user password 'newpassword
+sudo mysqladmin flush-privileges
+
+修改mysql的root口令
+
+sudo mysqladmin -u root -p password '你的新密码'
+
+如何优化mysql
+
+wget  http://www.day32.com/MySQL/tuning-primer.sh
+chmod +x tuning-primer.sh
+./tuning-primer.sh
+
+常用mysql管理语句
+
+show table status;  #查询表状态
+show full processlist;  #查询mysql进程
+alter table site_stats engine=InnoDB;   #转换表为InnoDB类型，转表锁为行锁。
+show variables;  ＃查看mysql 变量
+
+控制
+如何使用命令关闭显示器
+
+xset dpms force off
+
+设置CPU的频率
+
+sudo apt-get install cpufrequtils 
+#查看cpu当前频率信息
+sudo cpufreq-info 
+设置模式,对应于{最省电（最低频率），用户控制，最高或最低，正常，最大性能} 
+cpufreq-set -g {powersave, userspace, ondemand, conservative, performance}
+
+命令关机
+
+sudo halt
+sudo shutdown -h now              #现在关机
+sudo shutdown -h 23:00           #晚上11点自动关机
+sudo shutdown -h +60          #60分钟后关机
+
+命令重启电脑
+
+
+sudo reboot
+sudo shutdown -r now
+
+如何修改ssh登录提示
+
+sudo gedit  /etc/motd
+
+如何关闭ssh登录提示
+
+sudo gedit  /etc/ssh/sshd_config 修改这一行为： PrintLastLog no
+
+如何使用命令关闭笔记本的触摸板
+
+synclient touchpadoff=1
+那么开启触摸板就是：
+synclient touchpadoff=0
+
+统计
+统计最常用的10条命令
+
+history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
+
+统计每个单词的出现频率，并排序
+
+awk '{arr[$1]+=1 }END{for(i in arr){print arr[i]"\t"i}}' FILE_NAME | sort -rn
+
+统计80端口的连接个数并按照从大到小排列
+
+netstat -na|grep :80|awk '{print $5}'|awk -F: '{print $1}'|sort|uniq -c|sort -r -n
+
+编辑器
+vim中删除技巧
+
+:%s/[Ctrl-v][Enter]//g 删除DOS方式的回车^M
+:%s= *$== 删除行尾空白
+:%s/^(.*)n1/1$/ 删除重复行
+:%s/^.{-}pdf/new.pdf/ 只是删除第一个pdf
+:%s/// 删除多行注释
+:g/^$/d 删除所有空行 
+:g!/^dd/d 删除不含字符串'dd'的行
+:v/^dd/d 删除不含字符串'dd'的行
+:g/str1/,/str2/d 删除所有第一个含str1到第一个含str2之间的行
+:v/./.,/./-1join 压缩空行
+:g/^$/,/./-j 压缩空行
+ndw 或 ndW 删除光标处开始及其后的 n-1 个字符。
+d0 删至行首。
+d$ 删至行尾。
+ndd 删除当前行及其后 n-1 行。
+x 或 X 删除一个字符。
+Ctrl+u 删除输入方式下所输入的文本。
+D 删除到行尾
+x,y 删除与复制包含高亮区
+dl 删除当前字符（与x命令功能相同）
+d0 删除到某一行的开始位置
+d^ 删除到某一行的第一个字符位置（不包括空格或TAB字符）
+dw 删除到某个单词的结尾位置
+d3w 删除到第三个单词的结尾位置
+db 删除到某个单词的开始位置
+dW 删除到某个以空格作为分隔符的单词的结尾位置
+dB 删除到某个以空格作为分隔符的单词的开始位置
+d7B 删除到前面7个以空格作为分隔符的单词的开始位置
+d） 删除到某个语句的结尾位置
+d4） 删除到第四个语句的结尾位置
+d（ 删除到某个语句的开始位置
+d） 删除到某个段落的结尾位置
+d{ 删除到某个段落的开始位置
+d7{ 删除到当前段落起始位置之前的第7个段落位置
+dd 删除当前行
+d/text 删除从文本中出现“text”中所指定字样的位置，一直向前直到下一个该字样所出现的位置（但不包括该字样）之间的内容
+dfc 删除从文本中出现字符“c”的位置，一直向前直到下一个该字符所出现的位置（包括该字符）之间的内容
+dtc 删除当前行直到下一个字符“c”所出现位置之间的内容
+D 删除到某一行的结尾
+d$ 删除到某一行的结尾
+5dd 删除从当前行所开始的5行内容
+dL 删除直到屏幕上最后一行的内容
+dH 删除直到屏幕上第一行的内容
+dG 删除直到工作缓存区结尾的内容
+d1G 删除直到工作缓存区开始的内容
+
+如何配置Emacs
+
+打开新得力或者命令行，查找emacs， 选择你想要的版本，比如emacs22或者emacs21.
+
+之后的配置参考Emacs 常见问题及其解决方法
+vim 如何显示彩色字符
+
+sudo cp /usr/share/vim/vimcurrent/vimrc_example.vim /usr/share/vim/vimrc
+
+让 vim 直接支持编辑 .gz 文件
+
+sudo apt-get install vim-full
+
+vim 如何显示行号，在~/.vimrc中加入
+
+set number
+
+如果没有~/.vimrc文件，则可以在/etc/vim/vimrc中加入
+
+set number
+
+vim配色方案 (~/.vimrc)
+
+colorscheme scheme
+可用的 scheme 在 /usr/share/vim/vim71/colors/
+
+解决vim中文编码问题，在~/.vimrc中加入
+
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk,ucs-bom,cp936
+
+#再提供一个实践中觉得不错的配置：
+" Encoding related
+set encoding=UTF-8
+set langmenu=zh_CN.UTF-8
+language message zh_CN.UTF-8
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencoding=utf-8
+
+编译和打包
+安装通用编译环境
+
+sudo apt-get install build-essential
+
+通用的编译安装步骤
+
+./configure; make; sudo make install
+
+如何编译安装软件 kate
+
+sudo apt-get install apt-build
+sudo apt-build install kate
+
+获得源代码包
+
+sudo apt-get source mysql-server
+
+解压缩还原源代码包
+
+dpkg-source -x mysql-dfsg-5.1_5.1.30-1.dsc
+
+安装编译打包环境
+
+sudo apt-get build-dep mysql-server
+
+重新编译并打包Debian化的源码
+
+dpkg-buildpackage -rfakeroot
+
+给源代码打补丁
+
+patch -p0 < mysql.patch
+
+其它
+把终端加到右键菜单
+
+sudo apt-get install nautilus-open-terminal
+
+如何删除Totem电影播放机的播放历史记录
+
+rm ~/.recently-used
+
+清除桌面挂载硬盘图标
+
+gconf-editor
+#左边选择: apps —> nautilus —> desktop ，右边的 volumes_visible 不要勾选。
+
+如何更换gnome程序的快捷键
+
+点击菜单，鼠标停留在某条菜单上，键盘输入任意你所需要的键，可以是组合键，会立即生效；
+如果要清除该快捷键，请使用backspace
+
+man 如何显示彩色字符
+
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+如何在命令行删除在会话设置的启动程序
+
+cd ~/.config/autostart
+rm 需要删除启动程序
+
+如何提高wine的反应速度
+
+sudo sed -ie '/GBK/,/^}/d' /usr/share/X11/locale/zh_CN.UTF-8/XLC_LOCALE
+
+如何命令行刻录
+
+mkisofs -o test.iso -Jrv -V test_disk /home/carla/
+cdrecord -scanbus
+scsibus1:
+ 1,1,0 101) 'HL-DT-ST' 'CD-RW GCE-8481B ' '1.04' Removable CD-ROM
+cdrecord -v -eject speed=8 dev=1,1,0 test.iso
+
+http://www.ibm.com/developerworks/cn/linux/l-cdburn/index.html
+延迟抓图
+
+gnome-screenshot -d 10 #延迟10秒抓图
+gnome-screenshot -w -d 5 #延迟5秒抓当前激活窗口
+
+回收站在哪里
+
+Ubuntu8.04 Gnome 2.22.2 以后在 $HOME/.local/share/Trash/
+Ubuntu8.04 之前在 $HOME/.Trash/
+
+默认打开方式的配置文件在哪里
+
+#全局
+/etc/gnome/defaults.list 
+#个人
+~/.local/share/applications/mimeapps.list
+
+Firefox 的缓存目录在哪里
+
+ls ~/.mozilla/firefox/*.default/Cache/
+
+查看samba的用户
+
+sudo pdbedit -L
+
+增加一个用户到samba
+
+sudo pdbedit -a username
+
+从samba账户中删除一个用户
+
+sudo pdbedit -x username
+
+显示samba账户信息
+
+sudo pdbedit -r username
+
+测试samba账户是否正常
+
+smbclient -L 192.168.1.1 -U username -d 3
+
+samba的数据库存在哪里
+
+/var/lib/samba/passdb.tdb
+
+samba用户Windows下无法登录
+
+在Windows的运行输入 cmd ，进入终端，输入 net use 命令，将显示已经连接的帐号如 \\192.168.1.1\username
+再输入 net use  \\192.168.1.1\username /delete 删除现有的共享连接，再尝试进入另外一个目录就可以正常登录了。
+
+Pidgin 的聊天记录在哪里
+
+~/.purple/logs/
+
+安装PDF打印机
+
+sudo apt-get install cups-pdf
+#打印生成的pdf文件在 ~/PDF 文件夹里面
+
+nvidia快速重设显示设置及配置多显示器
+
+sudo dpkg-reconfigure xserver-xorg
+sudo nvidia-xconfig
+#nvidia-settings 用于设置分辨率和多显示器
+sudo nvidia-settings
+
+

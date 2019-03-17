@@ -1,0 +1,30 @@
+# Project: c4_client
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = c4_client.o $(RES)
+LINKOBJ  = c4_client.o $(RES)
+LIBS =  -L"D:/software/Dev-Cpp/lib" ../../../software/Dev-Cpp/lib/libws2_32.a  
+INCS =  -I"D:/software/Dev-Cpp/include" 
+CXXINCS =  -I"D:/software/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/software/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/software/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/software/Dev-Cpp/include/c++/3.4.2"  -I"D:/software/Dev-Cpp/include" 
+BIN  = c4(client).exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before c4(client).exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "c4(client).exe" $(LIBS)
+
+c4_client.o: c4_client.c
+	$(CC) -c c4_client.c -o c4_client.o $(CFLAGS)

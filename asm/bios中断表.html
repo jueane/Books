@@ -1,0 +1,913 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="je ">
+	<META NAME="CREATED" CONTENT="20101002;3025400">
+	<META NAME="CHANGEDBY" CONTENT="je ">
+	<META NAME="CHANGED" CONTENT="20101002;3141400">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 2cm }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<DIV ID="blog_text" DIR="LTR">
+	<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+		<COL WIDTH=13*>
+		<COL WIDTH=10*>
+		<COL WIDTH=77*>
+		<COL WIDTH=84*>
+		<COL WIDTH=72*>
+		<TR BGCOLOR="#ffd5ff">
+			<TD WIDTH=5% HEIGHT=26 BGCOLOR="#ffd5ff" STYLE="border-top: 1.00pt solid #cccccc; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0000"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">INT</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: 1.00pt solid #cccccc; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0000"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AH</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: 1.00pt solid #cccccc; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0000">功能</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: 1.00pt solid #cccccc; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0000">调用参数</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border: 1.00pt solid #cccccc; padding: 0.05cm">
+				<P><FONT COLOR="#ff0000">返回参数</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">0<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">设置显示方式</FONT></P>
+				<P><FONT COLOR="#008000">　</FONT></P>
+				<P><FONT COLOR="#008000">　</FONT></P>
+				<P><FONT COLOR="#008000">　</FONT></P>
+				<P><FONT COLOR="#008000">　</FONT></P>
+				<P><FONT COLOR="#008000">　</FONT></P>
+				<P><FONT COLOR="#008000">　</FONT></P>
+				<P><FONT COLOR="#008000">　</FONT></P>
+				<P><FONT COLOR="#008000"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR><BR><BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=00
+				40×25</SPAN></FONT>黑白方式<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=01
+				40×25</SPAN></FONT>彩色方式<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=02
+				80×25</SPAN></FONT>黑白方式<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=03
+				80×25</SPAN></FONT>彩色方式<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=04
+				320×200</SPAN></FONT>彩色图形方式<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=05
+				320×200</SPAN></FONT>黑白图形方式<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=06
+				320×200</SPAN></FONT>黑白图形方式<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=07
+				80×25</SPAN></FONT>单色文本方式<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=08
+				160×200 16</SPAN></FONT>色图形 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(PCjr)<BR>AL=09
+				320×200 16</SPAN></FONT>色图形 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(PCjr)<BR>AL=0A
+				640×200 16</SPAN></FONT>色图形 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(PCjr)<BR>AL=0B
+				</SPAN></FONT>保留<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(EGA)<BR>AL=0C
+				</SPAN></FONT>保留<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(EGA)<BR>AL=0D
+				320×200 </SPAN></FONT>彩色图形 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(EGA)<BR>AL=0E
+				640×200 </SPAN></FONT>彩色图形 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(EGA)<BR>AL=0F
+				640×350 </SPAN></FONT>黑白图形 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(EGA)<BR>AL=10
+				640×350 </SPAN></FONT>彩色图形 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(EGA)<BR>AL=11
+				640×480 </SPAN></FONT>单色图形 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(EGA)<BR>AL=12
+				640×480 16</SPAN></FONT>色图形 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(EGA)<BR>AL=13
+				320×200 256</SPAN></FONT>色图形 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(EGA)<BR>AL=40
+				80×30 </SPAN></FONT>彩色文本<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(CGE400)<BR>AL=41
+				80×50 </SPAN></FONT>彩色文本<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(CGE400)<BR>AL=42
+				640×400 </SPAN></FONT>彩色图形<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(CGE400)</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">置光标类型</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(CH)<SUB>0-3</SUB>=
+				</SPAN></FONT>光标起始行<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>(CL)<SUB>0-3</SUB>=</SPAN></FONT>光标结束行</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">2</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">置光标位置</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">BH=</SPAN></FONT>页号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DH,DL=
+				</SPAN></FONT>行<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">,</SPAN></FONT>列</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">3</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">读光标位置</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">BH=</SPAN></FONT>页号</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">CH=</SPAN></FONT>光标起始行<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DH,DL=
+				</SPAN></FONT>行<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">,</SPAN></FONT>列</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10<BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">4<BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">读光笔位置<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AH=0
+				</SPAN></FONT>光笔未触发<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>=1
+				</SPAN></FONT>光笔触发<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CH=</SPAN></FONT>象素行<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>BX=</SPAN></FONT>象素列<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DH=</SPAN></FONT>字符行<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DL=</SPAN></FONT>字符列</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">5</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">置显示页</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>页号</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10<BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">6<BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">屏幕初始化或上卷<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>上卷行数<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=0
+				</SPAN></FONT>整个窗口空白<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>BH=</SPAN></FONT>卷入行属性<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CH=</SPAN></FONT>左上角行号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CL=</SPAN></FONT>左上角列号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DH=</SPAN></FONT>右下角行号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DL=</SPAN></FONT>右下角列号</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10<BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">7<BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">屏幕初始化或下卷<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>下卷行数<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=0
+				</SPAN></FONT>整个窗口空白<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>BH=</SPAN></FONT>卷入行属性<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CH=</SPAN></FONT>左上角行号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CL=</SPAN></FONT>左上角列号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DH=</SPAN></FONT>右下角行号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DL=</SPAN></FONT>右下角列号</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">8</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">读光标位置的字符和 属性</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">BH=</SPAN></FONT>显示页</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AH=</SPAN></FONT>属性<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=
+				</SPAN></FONT>字符</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10<BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">9<BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">在光标位置显示字符 及属性<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">BH=</SPAN></FONT>显示页<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=
+				</SPAN></FONT>字符<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>BL=</SPAN></FONT>属性<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CX=</SPAN></FONT>字符重复次数</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">A</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">在光标位置显示字符</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">BH=</SPAN></FONT>显示页<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=
+				</SPAN></FONT>字符<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CX=</SPAN></FONT>字符重复次数</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">B</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">置彩色调板 <FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(320×200</SPAN></FONT>图形<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">)</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">BH=</SPAN></FONT>彩色调板<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">ID<BR>BL=
+				</SPAN></FONT>和<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">ID</SPAN></FONT>配套使用的颜色</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">C</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">写象素</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">DX=</SPAN></FONT>行
+				<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(0-199)<BR>CX=</SPAN></FONT>列<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(0-639)<BR>AL=</SPAN></FONT>象素值</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">D</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">读象素</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">DX=</SPAN></FONT>行
+				<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(0-199)<BR>CX=</SPAN></FONT>列<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(0-639)</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>象素值</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">E</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">显示字符<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>(</SPAN></FONT>光
+				标前移<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">)</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>字符<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>BL=
+				</SPAN></FONT>前景色</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">F</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">取当前显示方式</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AH=</SPAN></FONT>字符列数<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=
+				</SPAN></FONT>显示方式</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">10<BR><BR><BR><BR><BR><BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">13<BR><BR><BR><BR><BR><BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">显示字符串<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(</SPAN></FONT>适用
+				<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AT)<BR><BR><BR><BR><BR><BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">ES:BP=</SPAN></FONT>串地址<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CX=
+				</SPAN></FONT>串长度<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DH,DL=</SPAN></FONT>起始行<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">,</SPAN></FONT>列<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>BH=</SPAN></FONT>页号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=0,BL=</SPAN></FONT>属性<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT>串<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:char,char,...<BR>AL=1,BL=
+				</SPAN></FONT>属性<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT>串<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:char,char,...<BR>AL=2<BR></SPAN></FONT>串<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:char,attr,char,attr,...<BR>AL=3<BR></SPAN></FONT>串<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:char,attr,char,attr,...</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR><BR><BR></SPAN></FONT>光
+				标返回起始位置<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR><BR></SPAN></FONT>光标跟随移动&nbsp;<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR><BR></SPAN></FONT>光标返回起始位置<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR><BR></SPAN></FONT>光标跟随移动</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">11<BR><BR><BR><BR><BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P>　</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">设备检验<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR><BR><BR><BR><BR><BR><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AX=</SPAN></FONT>返回值<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>bit0=1,
+				</SPAN></FONT>配有磁盘<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>bit1=1,80287</SPAN></FONT>协处理器<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>bit4,5=01,40×25BW(</SPAN></FONT>彩色板<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">)<BR>=10,80×25BW(</SPAN></FONT>彩色板<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">)<BR>=11,80×25BW(</SPAN></FONT>黑白板<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">)<BR>bit6,7=</SPAN></FONT>罗盘驱动器<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>bit9,10,11=RS-
+				232</SPAN></FONT>板号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>bit12=</SPAN></FONT>游戏适配器<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>bit13=</SPAN></FONT>串行打印机<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>bit14,15=</SPAN></FONT>打印机号</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">12</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080">　</FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">测定存储器容量</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AX=</SPAN></FONT>字节数
+				<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(KB)</SPAN></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">13</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">0</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">软盘系统复位</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">13</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">读软盘状态</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>状态字节</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">13<BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">2<BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">读磁盘<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>扇区数<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CH,CL=
+				</SPAN></FONT>磁盘号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">,</SPAN></FONT>扇区号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DH,DL=</SPAN></FONT>磁头号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">,</SPAN></FONT>驱动器号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>ES:BX=</SPAN></FONT>数据缓冲区地址</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">读成功<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:AH=0<BR>AL=</SPAN></FONT>读取的扇区数<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT>读失败<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:AH=</SPAN></FONT>出错代码</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">13</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">3</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">写磁盘</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">同上</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">写成功<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:AH=0<BR>AL=</SPAN></FONT>写入的扇区数<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT>写失败<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:AH=</SPAN></FONT>出错代码</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">13</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">4</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">检验磁盘扇区</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">同上<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(ES:BX</SPAN></FONT>不
+				设置<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">)</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">成功<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:AH=0<BR>AL=</SPAN></FONT>检验的扇区数<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT>失败<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:AH=</SPAN></FONT>出错代码</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">13</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">5</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">格式化盘磁道</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">ES:BX=</SPAN></FONT>磁道地
+				址</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">成功<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:AH=0<BR></SPAN></FONT>失
+				败<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:AH=</SPAN></FONT>出错代码</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">14</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">0</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">初始化串行通讯口</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>初始化参数<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DX=
+				</SPAN></FONT>通讯口号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(0,1)</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AH=</SPAN></FONT>通读口状态<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=
+				</SPAN></FONT>调制解调器状态</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">14<BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1<BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">向串行通讯口写字符<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>字符<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DX=
+				</SPAN></FONT>通讯口号<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(0,1)</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">写成功<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:(AH)<SUB>7</SUB>=0<BR></SPAN></FONT>写
+				失败<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:(AH)<SUB>7</SUB>=1<BR>(AH)<SUB>0-6</SUB>=</SPAN></FONT>通讯口状态</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">14<BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">2<BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">从串行通讯口读字符<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">DX=</SPAN></FONT>通讯口号
+				<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(0,1)<BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">读成功<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:(AH)<SUB>7</SUB>=0<BR>(AL)=</SPAN></FONT>字符<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT>写失败<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:(AH)<SUB>7</SUB>=1<BR>(AH)<SUB>0-6</SUB>=</SPAN></FONT>通讯口状态</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">14</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">3</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">取通讯口状态</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">DX=</SPAN></FONT>通讯口号
+				<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(0,1)</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AH=</SPAN></FONT>通讯口状态<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AL=
+				</SPAN></FONT>调制解调器状态</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">15</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">0</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">启动盒式磁带马达</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">15</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">停止盒式磁带马达</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">15<BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">2<BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">磁带分块读<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">ES:BX=</SPAN></FONT>数据传
+				输区地址<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CX=</SPAN></FONT>字节数<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT></FONT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AH=</SPAN></FONT>状态字节<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AH=00
+				</SPAN></FONT>读成功<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>=01
+				</SPAN></FONT>冗余检验错<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>=02
+				</SPAN></FONT>无数据传输<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>=04
+				</SPAN></FONT>无引导</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">15</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">3</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">磁带分块写</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">DS:BX=</SPAN></FONT>数据传
+				输区地址<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>CX=</SPAN></FONT>字节数</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">同上</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">16</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">0</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">从键盘读字符</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>字符码<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AH=
+				</SPAN></FONT>扫描码</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">16</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">读键盘缓冲区字符</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">ZF=0
+				AL=</SPAN></FONT>字符码<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>AH=</SPAN></FONT>扫描码<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>ZF=1
+				</SPAN></FONT>缓冲区空</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">16</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">2</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">读键盘状态字节</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>键盘状态字节</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">17</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">0</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">打印字符<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT>回
+				送状态字节</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AL=</SPAN></FONT>字符<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DX=
+				</SPAN></FONT>打印机号</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AH=</SPAN></FONT>打印机状态字
+				节</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">17</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">初始化打印机<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR></SPAN></FONT>回
+				送状态字节</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">DX=</SPAN></FONT>打印机号</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AH=</SPAN></FONT>打印机状态字
+				节</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">17</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">2</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">取状态字节</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">DX=</SPAN></FONT>打印机号</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">AH=</SPAN></FONT>打印机状态字
+				节</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1A</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">0</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">读时钟</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">CH:CL=</SPAN></FONT>时<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:</SPAN></FONT>分<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DH:DL=
+				</SPAN></FONT>秒<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:1/100</SPAN></FONT>秒</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1A</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">置时钟</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">CH:CL=</SPAN></FONT>时<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:</SPAN></FONT>分<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><BR>DH:DL=
+				</SPAN></FONT>秒<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:1/100</SPAN></FONT>秒</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1A</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">2</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">读实时钟</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">CH:CL=</SPAN></FONT>时<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:</SPAN></FONT>分
+				<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(BCD)<BR>DH:DL=</SPAN></FONT>秒<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:1/100</SPAN></FONT>秒<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(BCD)</SPAN></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1A</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">6</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">置报警时间</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">CH:CL=</SPAN></FONT>时<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:</SPAN></FONT>分
+				<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(BCD)<BR>DH:DL=</SPAN></FONT>秒<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">:1/100</SPAN></FONT>秒<FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">(BCD)</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#800080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">1A</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#ff0080"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US">7</SPAN></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#008000">清除报警</FONT></P>
+			</TD>
+			<TD WIDTH=33% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<P><FONT COLOR="#0080c0">　</FONT></P>
+			</TD>
+			<TD WIDTH=28% STYLE="border-top: none; border-bottom: 1.00pt solid #cccccc; border-left: 1.00pt solid #cccccc; border-right: 1.00pt solid #cccccc; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<P><FONT COLOR="#8080c0">　</FONT></P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

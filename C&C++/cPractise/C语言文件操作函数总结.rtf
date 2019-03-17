@@ -1,0 +1,380 @@
+{\rtf1\ansi\ansicpg936\deff0{\fonttbl{\f0\fmodern\fprq6\fcharset134 \'cb\'ce\'cc\'e5;}}
+{\*\generator Msftedit 5.41.15.1515;}\viewkind4\uc1\pard\lang2052\f0\fs20 C\'d3\'ef\'d1\'d4\'ce\'c4\'bc\'fe\'b2\'d9\'d7\'f7\'ba\'af\'ca\'fd\'d7\'dc\'bd\'e1\par
+\par
+clearerr\'a3\'a8\'c7\'e5\'b3\'fd\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'b4\'ed\'ce\'f3\'c6\'ec\'b1\'ea\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd feof\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd void clearerr(FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 clearerr\'a3\'a8\'a3\'a9\'c7\'e5\'b3\'fd\'b2\'ce\'ca\'fdstream\'d6\'b8\'b6\'a8\'b5\'c4\'ce\'c4\'bc\'fe\'c1\'f7\'cb\'f9\'ca\'b9\'d3\'c3\'b5\'c4\'b4\'ed\'ce\'f3\'c6\'ec\'b1\'ea\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5\par
+\'a1\'a1\'a1\'a1fclose\'a3\'a8\'b9\'d8\'b1\'d5\'ce\'c4\'bc\'fe\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd close\'a3\'acfflush\'a3\'acfopen\'a3\'acsetbuf\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int fclose(FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fclose()\'d3\'c3\'c0\'b4\'b9\'d8\'b1\'d5\'cf\'c8\'c7\'b0fopen()\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'a1\'a3\'b4\'cb\'b6\'af\'d7\'f7\'bb\'e1\'c8\'c3\'bb\'ba\'b3\'e5\'c7\'f8\'c4\'da\'b5\'c4\'ca\'fd\'be\'dd\'d0\'b4\'c8\'eb\'ce\'c4\'bc\'fe\'d6\'d0\'a3\'ac\'b2\'a2\'ca\'cd\'b7\'c5\'cf\'b5\'cd\'b3\'cb\'f9\'cc\'e1\'b9\'a9\'b5\'c4\'ce\'c4\'bc\'fe\'d7\'ca\'d4\'b4\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'c8\'f4\'b9\'d8\'ce\'c4\'bc\'fe\'b6\'af\'d7\'f7\'b3\'c9\'b9\'a6\'d4\'f2\'b7\'b5\'bb\'d80\'a3\'ac\'d3\'d0\'b4\'ed\'ce\'f3\'b7\'a2\'c9\'fa\'ca\'b1\'d4\'f2\'b7\'b5\'bb\'d8EOF\'b2\'a2\'b0\'d1\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb\'b4\'e6\'b5\'bderrno\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb EBADF\'b1\'ed\'ca\'be\'b2\'ce\'ca\'fdstream\'b7\'c7\'d2\'d1\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd \'c7\'eb\'b2\'ce\'bf\'bcfopen\'a3\'a8\'a3\'a9\'a1\'a3\par
+\'a1\'a1\'a1\'a1fdopen\'a3\'a8\'bd\'ab\'ce\'c4\'bc\'fe\'c3\'e8\'ca\'f6\'b4\'ca\'d7\'aa\'ce\'aa\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acopen\'a3\'acfclose\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd FILE * fdopen(int fildes,const char * mode);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fdopen()\'bb\'e1\'bd\'ab\'b2\'ce\'ca\'fdfildes \'b5\'c4\'ce\'c4\'bc\'fe\'c3\'e8\'ca\'f6\'b4\'ca\'a3\'ac\'d7\'aa\'bb\'bb\'ce\'aa\'b6\'d4\'d3\'a6\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'ba\'f3\'b7\'b5\'bb\'d8\'a1\'a3\'b2\'ce\'ca\'fdmode \'d7\'d6\'b7\'fb\'b4\'ae\'d4\'f2\'b4\'fa\'b1\'ed\'d7\'c5\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'b5\'c4\'c1\'f7\'d0\'ce\'cc\'ac\'a3\'ac\'b4\'cb\'d0\'ce\'cc\'ac\'b1\'d8\'d0\'eb\'ba\'cd\'d4\'ad\'cf\'c8\'ce\'c4\'bc\'fe\'c3\'e8\'ca\'f6\'b4\'ca\'b6\'c1\'d0\'b4\'c4\'a3\'ca\'bd\'cf\'e0\'cd\'ac\'a1\'a3\'b9\'d8\'d3\'damode \'d7\'d6\'b7\'fb\'b4\'ae\'b8\'f1\'ca\'bd\'c7\'eb\'b2\'ce\'bf\'bcfopen()\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'d7\'aa\'bb\'bb\'b3\'c9\'b9\'a6\'ca\'b1\'b7\'b5\'bb\'d8\'d6\'b8\'cf\'f2\'b8\'c3\'c1\'f7\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'a1\'a3\'ca\'a7\'b0\'dc\'d4\'f2\'b7\'b5\'bb\'d8NULL\'a3\'ac\'b2\'a2\'b0\'d1\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb\'b4\'e6\'d4\'daerrno\'d6\'d0\'a1\'a3\par
+\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1FILE * fp =fdopen(0,\rdblquote w+\rdblquote );\par
+\'a1\'a1\'a1\'a1fprintf(fp,\rdblquote %s\\n\rdblquote ,\rdblquote hello!\rdblquote );\par
+\'a1\'a1\'a1\'a1fclose(fp);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1\'d6\'b4\'d0\'d0 hello!\par
+\'a1\'a1\'a1\'a1feof\'a3\'a8\'bc\'ec\'b2\'e9\'ce\'c4\'bc\'fe\'c1\'f7\'ca\'c7\'b7\'f1\'b6\'c1\'b5\'bd\'c1\'cb\'ce\'c4\'bc\'fe\'ce\'b2\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acfgetc\'a3\'acfgets\'a3\'acfread\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int feof(FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 feof()\'d3\'c3\'c0\'b4\'d5\'ec\'b2\'e2\'ca\'c7\'b7\'f1\'b6\'c1\'c8\'a1\'b5\'bd\'c1\'cb\'ce\'c4\'bc\'fe\'ce\'b2\'a3\'ac\'ce\'b2\'ca\'fdstream\'ce\'aafopen\'a3\'a8\'a3\'a9\'cb\'f9\'b7\'b5\'bb\'d8\'d6\'ae\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'a1\'a3\'c8\'e7\'b9\'fb\'d2\'d1\'b5\'bd\'ce\'c4\'bc\'fe\'ce\'b2\'d4\'f2\'b7\'b5\'bb\'d8\'b7\'c7\'c1\'e3\'d6\'b5\'a3\'ac\'c6\'e4\'cb\'fb\'c7\'e9\'bf\'f6\'b7\'b5\'bb\'d80\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'b7\'b5\'bb\'d8\'b7\'c7\'c1\'e3\'d6\'b5\'b4\'fa\'b1\'ed\'d2\'d1\'b5\'bd\'b4\'ef\'ce\'c4\'bc\'fe\'ce\'b2\'a1\'a3\par
+\'a1\'a1\'a1\'a1fflush\'a3\'a8\'b8\'fc\'d0\'c2\'bb\'ba\'b3\'e5\'c7\'f8\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd write\'a3\'acfopen\'a3\'acfclose\'a3\'acsetbuf\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int fflush(FILE* stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fflush()\'bb\'e1\'c7\'bf\'c6\'c8\'bd\'ab\'bb\'ba\'b3\'e5\'c7\'f8\'c4\'da\'b5\'c4\'ca\'fd\'be\'dd\'d0\'b4\'bb\'d8\'b2\'ce\'ca\'fdstream\'d6\'b8\'b6\'a8\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'d0\'a1\'a3\'c8\'e7\'b9\'fb\'b2\'ce\'ca\'fdstream\'ce\'aaNULL\'a3\'acfflush()\'bb\'e1\'bd\'ab\'cb\'f9\'d3\'d0\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'ca\'fd\'be\'dd\'b8\'fc\'d0\'c2\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'b3\'c9\'b9\'a6\'b7\'b5\'bb\'d80\'a3\'ac\'ca\'a7\'b0\'dc\'b7\'b5\'bb\'d8EOF\'a3\'ac\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb\'b4\'e6\'d3\'daerrno\'d6\'d0\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb EBADF \'b2\'ce\'ca\'fdstream \'d6\'b8\'b6\'a8\'b5\'c4\'ce\'c4\'bc\'fe\'ce\'b4\'b1\'bb\'b4\'f2\'bf\'aa\'a3\'ac\'bb\'f2\'b4\'f2\'bf\'aa\'d7\'b4\'cc\'ac\'ce\'aa\'d6\'bb\'b6\'c1\'a1\'a3\'c6\'e4\'cb\'fc\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb\'b2\'ce\'bf\'bcwrite\'a3\'a8\'a3\'a9\'a1\'a3\par
+\'a1\'a1\'a1\'a1fgetc\'a3\'a8\'d3\'c9\'ce\'c4\'bc\'fe\'d6\'d0\'b6\'c1\'c8\'a1\'d2\'bb\'b8\'f6\'d7\'d6\'b7\'fb\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd open\'a3\'acfread\'a3\'acfscanf\'a3\'acgetc\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd nt fgetc(FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fgetc()\'b4\'d3\'b2\'ce\'ca\'fdstream\'cb\'f9\'d6\'b8\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'d0\'b6\'c1\'c8\'a1\'d2\'bb\'b8\'f6\'d7\'d6\'b7\'fb\'a1\'a3\'c8\'f4\'b6\'c1\'b5\'bd\'ce\'c4\'bc\'fe\'ce\'b2\'b6\'f8\'ce\'de\'ca\'fd\'be\'dd\'ca\'b1\'b1\'e3\'b7\'b5\'bb\'d8EOF\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 getc()\'bb\'e1\'b7\'b5\'bb\'d8\'b6\'c1\'c8\'a1\'b5\'bd\'b5\'c4\'d7\'d6\'b7\'fb\'a3\'ac\'c8\'f4\'b7\'b5\'bb\'d8EOF\'d4\'f2\'b1\'ed\'ca\'be\'b5\'bd\'c1\'cb\'ce\'c4\'bc\'fe\'ce\'b2\'a1\'a3\par
+\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1FILE *fp;\par
+\'a1\'a1\'a1\'a1int c;\par
+\'a1\'a1\'a1\'a1fp=fopen(\ldblquote exist\rdblquote ,\rdblquote r\rdblquote );\par
+\'a1\'a1\'a1\'a1while((c=fgetc(fp))!=EOF)\par
+\'a1\'a1\'a1\'a1printf(\ldblquote %c\rdblquote ,c);\par
+\'a1\'a1\'a1\'a1fclose(fp);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1fgets\'a3\'a8\'d3\'c9\'ce\'c4\'bc\'fe\'d6\'d0\'b6\'c1\'c8\'a1\'d2\'bb\'d7\'d6\'b7\'fb\'b4\'ae\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd open\'a3\'acfread\'a3\'acfscanf\'a3\'acgetc\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd har * fgets(char * s,int size,FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fgets()\'d3\'c3\'c0\'b4\'b4\'d3\'b2\'ce\'ca\'fdstream\'cb\'f9\'d6\'b8\'b5\'c4\'ce\'c4\'bc\'fe\'c4\'da\'b6\'c1\'c8\'eb\'d7\'d6\'b7\'fb\'b2\'a2\'b4\'e6\'b5\'bd\'b2\'ce\'ca\'fds\'cb\'f9\'d6\'b8\'b5\'c4\'c4\'da\'b4\'e6\'bf\'d5\'bc\'e4\'a3\'ac\'d6\'b1\'b5\'bd\'b3\'f6\'cf\'d6\'bb\'bb\'d0\'d0\'d7\'d6\'b7\'fb\'a1\'a2\'b6\'c1\'b5\'bd\'ce\'c4\'bc\'fe\'ce\'b2\'bb\'f2\'ca\'c7\'d2\'d1\'b6\'c1\'c1\'cbsize-1\'b8\'f6\'d7\'d6\'b7\'fb\'ce\'aa\'d6\'b9\'a3\'ac\'d7\'ee\'ba\'f3\'bb\'e1\'bc\'d3\'c9\'cfNULL\'d7\'f7\'ce\'aa\'d7\'d6\'b7\'fb\'b4\'ae\'bd\'e1\'ca\'f8\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 gets()\'c8\'f4\'b3\'c9\'b9\'a6\'d4\'f2\'b7\'b5\'bb\'d8s\'d6\'b8\'d5\'eb\'a3\'ac\'b7\'b5\'bb\'d8NULL\'d4\'f2\'b1\'ed\'ca\'be\'d3\'d0\'b4\'ed\'ce\'f3\'b7\'a2\'c9\'fa\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1char s[80];\par
+\'a1\'a1\'a1\'a1fputs(fgets(s,80,stdin),stdout);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1\'d6\'b4\'d0\'d0 this is a test /*\'ca\'e4\'c8\'eb*/\par
+\'a1\'a1\'a1\'a1this is a test /*\'ca\'e4\'b3\'f6*/\par
+\'a1\'a1\'a1\'a1fileno\'a3\'a8\'b7\'b5\'bb\'d8\'ce\'c4\'bc\'fe\'c1\'f7\'cb\'f9\'ca\'b9\'d3\'c3\'b5\'c4\'ce\'c4\'bc\'fe\'c3\'e8\'ca\'f6\'b4\'ca\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd open\'a3\'acfopen\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int fileno(FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fileno()\'d3\'c3\'c0\'b4\'c8\'a1\'b5\'c3\'b2\'ce\'ca\'fdstream\'d6\'b8\'b6\'a8\'b5\'c4\'ce\'c4\'bc\'fe\'c1\'f7\'cb\'f9\'ca\'b9\'d3\'c3\'b5\'c4\'ce\'c4\'bc\'fe\'c3\'e8\'ca\'f6\'b4\'ca\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'b7\'b5\'bb\'d8\'ce\'c4\'bc\'fe\'c3\'e8\'ca\'f6\'b4\'ca\'a1\'a3\par
+\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1FILE * fp;\par
+\'a1\'a1\'a1\'a1int fd;\par
+\'a1\'a1\'a1\'a1fp=fopen(\ldblquote /etc/passwd\rdblquote ,\rdblquote r\rdblquote );\par
+\'a1\'a1\'a1\'a1fd=fileno(fp);\par
+\'a1\'a1\'a1\'a1printf(\ldblquote fd=%d\\n\rdblquote ,fd);\par
+\'a1\'a1\'a1\'a1fclose(fp);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1\'d6\'b4\'d0\'d0 fd=3\par
+\'a1\'a1\'a1\'a1fopen\'a3\'a8\'b4\'f2\'bf\'aa\'ce\'c4\'bc\'fe\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd open\'a3\'acfclose\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd FILE * fopen(const char * path,const char * mode);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 \'b2\'ce\'ca\'fdpath\'d7\'d6\'b7\'fb\'b4\'ae\'b0\'fc\'ba\'ac\'d3\'fb\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'c2\'b7\'be\'b6\'bc\'b0\'ce\'c4\'bc\'fe\'c3\'fb\'a3\'ac\'b2\'ce\'ca\'fdmode\'d7\'d6\'b7\'fb\'b4\'ae\'d4\'f2\'b4\'fa\'b1\'ed\'d7\'c5\'c1\'f7\'d0\'ce\'cc\'ac\'a1\'a3\par
+\'a1\'a1\'a1\'a1mode\'d3\'d0\'cf\'c2\'c1\'d0\'bc\'b8\'d6\'d6\'d0\'ce\'cc\'ac\'d7\'d6\'b7\'fb\'b4\'ae:\par
+\'a1\'a1\'a1\'a1r \'b4\'f2\'bf\'aa\'d6\'bb\'b6\'c1\'ce\'c4\'bc\'fe\'a3\'ac\'b8\'c3\'ce\'c4\'bc\'fe\'b1\'d8\'d0\'eb\'b4\'e6\'d4\'da\'a1\'a3\par
+\'a1\'a1\'a1\'a1r+ \'b4\'f2\'bf\'aa\'bf\'c9\'b6\'c1\'d0\'b4\'b5\'c4\'ce\'c4\'bc\'fe\'a3\'ac\'b8\'c3\'ce\'c4\'bc\'fe\'b1\'d8\'d0\'eb\'b4\'e6\'d4\'da\'a1\'a3\par
+\'a1\'a1\'a1\'a1w \'b4\'f2\'bf\'aa\'d6\'bb\'d0\'b4\'ce\'c4\'bc\'fe\'a3\'ac\'c8\'f4\'ce\'c4\'bc\'fe\'b4\'e6\'d4\'da\'d4\'f2\'ce\'c4\'bc\'fe\'b3\'a4\'b6\'c8\'c7\'e5\'ce\'aa0\'a3\'ac\'bc\'b4\'b8\'c3\'ce\'c4\'bc\'fe\'c4\'da\'c8\'dd\'bb\'e1\'cf\'fb\'ca\'a7\'a1\'a3\'c8\'f4\'ce\'c4\'bc\'fe\'b2\'bb\'b4\'e6\'d4\'da\'d4\'f2\'bd\'a8\'c1\'a2\'b8\'c3\'ce\'c4\'bc\'fe\'a1\'a3\par
+\'a1\'a1\'a1\'a1w+ \'b4\'f2\'bf\'aa\'bf\'c9\'b6\'c1\'d0\'b4\'ce\'c4\'bc\'fe\'a3\'ac\'c8\'f4\'ce\'c4\'bc\'fe\'b4\'e6\'d4\'da\'d4\'f2\'ce\'c4\'bc\'fe\'b3\'a4\'b6\'c8\'c7\'e5\'ce\'aa\'c1\'e3\'a3\'ac\'bc\'b4\'b8\'c3\'ce\'c4\'bc\'fe\'c4\'da\'c8\'dd\'bb\'e1\'cf\'fb\'ca\'a7\'a1\'a3\'c8\'f4\'ce\'c4\'bc\'fe\'b2\'bb\'b4\'e6\'d4\'da\'d4\'f2\'bd\'a8\'c1\'a2\'b8\'c3\'ce\'c4\'bc\'fe\'a1\'a3\par
+\'a1\'a1\'a1\'a1a \'d2\'d4\'b8\'bd\'bc\'d3\'b5\'c4\'b7\'bd\'ca\'bd\'b4\'f2\'bf\'aa\'d6\'bb\'d0\'b4\'ce\'c4\'bc\'fe\'a1\'a3\'c8\'f4\'ce\'c4\'bc\'fe\'b2\'bb\'b4\'e6\'d4\'da\'a3\'ac\'d4\'f2\'bb\'e1\'bd\'a8\'c1\'a2\'b8\'c3\'ce\'c4\'bc\'fe\'a3\'ac\'c8\'e7\'b9\'fb\'ce\'c4\'bc\'fe\'b4\'e6\'d4\'da\'a3\'ac\'d0\'b4\'c8\'eb\'b5\'c4\'ca\'fd\'be\'dd\'bb\'e1\'b1\'bb\'bc\'d3\'b5\'bd\'ce\'c4\'bc\'fe\'ce\'b2\'a3\'ac\'bc\'b4\'ce\'c4\'bc\'fe\'d4\'ad\'cf\'c8\'b5\'c4\'c4\'da\'c8\'dd\'bb\'e1\'b1\'bb\'b1\'a3\'c1\'f4\'a1\'a3\par
+\'a1\'a1\'a1\'a1a+ \'d2\'d4\'b8\'bd\'bc\'d3\'b7\'bd\'ca\'bd\'b4\'f2\'bf\'aa\'bf\'c9\'b6\'c1\'d0\'b4\'b5\'c4\'ce\'c4\'bc\'fe\'a1\'a3\'c8\'f4\'ce\'c4\'bc\'fe\'b2\'bb\'b4\'e6\'d4\'da\'a3\'ac\'d4\'f2\'bb\'e1\'bd\'a8\'c1\'a2\'b8\'c3\'ce\'c4\'bc\'fe\'a3\'ac\'c8\'e7\'b9\'fb\'ce\'c4\'bc\'fe\'b4\'e6\'d4\'da\'a3\'ac\'d0\'b4\'c8\'eb\'b5\'c4\'ca\'fd\'be\'dd\'bb\'e1\'b1\'bb\'bc\'d3\'b5\'bd\'ce\'c4\'bc\'fe\'ce\'b2\'ba\'f3\'a3\'ac\'bc\'b4\'ce\'c4\'bc\'fe\'d4\'ad\'cf\'c8\'b5\'c4\'c4\'da\'c8\'dd\'bb\'e1\'b1\'bb\'b1\'a3\'c1\'f4\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'c9\'cf\'ca\'f6\'b5\'c4\'d0\'ce\'cc\'ac\'d7\'d6\'b7\'fb\'b4\'ae\'b6\'bc\'bf\'c9\'d2\'d4\'d4\'d9\'bc\'d3\'d2\'bb\'b8\'f6b\'d7\'d6\'b7\'fb\'a3\'ac\'c8\'e7rb\'a1\'a2w+b\'bb\'f2ab\'a3\'ab\'b5\'c8\'d7\'e9\'ba\'cf\'a3\'ac\'bc\'d3\'c8\'ebb \'d7\'d6\'b7\'fb\'d3\'c3\'c0\'b4\'b8\'e6\'cb\'df\'ba\'af\'ca\'fd\'bf\'e2\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'ce\'aa\'b6\'fe\'bd\'f8\'d6\'c6\'ce\'c4\'bc\'fe\'a3\'ac\'b6\'f8\'b7\'c7\'b4\'bf\'ce\'c4\'d7\'d6\'ce\'c4\'bc\'fe\'a1\'a3\'b2\'bb\'b9\'fd\'d4\'daPOSIX\'cf\'b5\'cd\'b3\'a3\'ac\'b0\'fc\'ba\'acLinux\'b6\'bc\'bb\'e1\'ba\'f6\'c2\'d4\'b8\'c3\'d7\'d6\'b7\'fb\'a1\'a3\'d3\'c9fopen()\'cb\'f9\'bd\'a8\'c1\'a2\'b5\'c4\'d0\'c2\'ce\'c4\'bc\'fe\'bb\'e1\'be\'df\'d3\'d0S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH(0666)\'c8\'a8\'cf\'de\'a3\'ac\'b4\'cb\'ce\'c4\'bc\'fe\'c8\'a8\'cf\'de\'d2\'b2\'bb\'e1\'b2\'ce\'bf\'bcumask\'d6\'b5\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'ce\'c4\'bc\'fe\'cb\'b3\'c0\'fb\'b4\'f2\'bf\'aa\'ba\'f3\'a3\'ac\'d6\'b8\'cf\'f2\'b8\'c3\'c1\'f7\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'be\'cd\'bb\'e1\'b1\'bb\'b7\'b5\'bb\'d8\'a1\'a3\'c8\'f4\'b9\'fb\'ce\'c4\'bc\'fe\'b4\'f2\'bf\'aa\'ca\'a7\'b0\'dc\'d4\'f2\'b7\'b5\'bb\'d8NULL\'a3\'ac\'b2\'a2\'b0\'d1\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb\'b4\'e6\'d4\'daerrno \'d6\'d0\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b8\'bd\'bc\'d3\'cb\'b5\'c3\'f7 \'d2\'bb\'b0\'e3\'b6\'f8\'d1\'d4\'a3\'ac\'bf\'aa\'ce\'c4\'bc\'fe\'ba\'f3\'bb\'e1\'d7\'f7\'d2\'bb\'d0\'a9\'ce\'c4\'bc\'fe\'b6\'c1\'c8\'a1\'bb\'f2\'d0\'b4\'c8\'eb\'b5\'c4\'b6\'af\'d7\'f7\'a3\'ac\'c8\'f4\'bf\'aa\'ce\'c4\'bc\'fe\'ca\'a7\'b0\'dc\'a3\'ac\'bd\'d3\'cf\'c2\'c0\'b4\'b5\'c4\'b6\'c1\'d0\'b4\'b6\'af\'d7\'f7\'d2\'b2\'ce\'de\'b7\'a8\'cb\'b3\'c0\'fb\'bd\'f8\'d0\'d0\'a3\'ac\'cb\'f9\'d2\'d4\'d4\'dafopen()\'ba\'f3\'c7\'eb\'d7\'f7\'b4\'ed\'ce\'f3\'c5\'d0\'b6\'cf\'bc\'b0\'b4\'a6\'c0\'ed\'a1\'a3\par
+\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1FILE * fp;\par
+\'a1\'a1\'a1\'a1fp=fopen(\ldblquote noexist\rdblquote ,\rdblquote a+\rdblquote );\par
+\'a1\'a1\'a1\'a1if(fp= =NULL) return;\par
+\'a1\'a1\'a1\'a1fclose(fp);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1fputc\'a3\'a8\'bd\'ab\'d2\'bb\'d6\'b8\'b6\'a8\'d7\'d6\'b7\'fb\'d0\'b4\'c8\'eb\'ce\'c4\'bc\'fe\'c1\'f7\'d6\'d0\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acfwrite\'a3\'acfscanf\'a3\'acputc\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int fputc(int c,FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fputc \'bb\'e1\'bd\'ab\'b2\'ce\'ca\'fdc \'d7\'aa\'ce\'aaunsigned char \'ba\'f3\'d0\'b4\'c8\'eb\'b2\'ce\'ca\'fdstream \'d6\'b8\'b6\'a8\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'d0\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 fputc()\'bb\'e1\'b7\'b5\'bb\'d8\'d0\'b4\'c8\'eb\'b3\'c9\'b9\'a6\'b5\'c4\'d7\'d6\'b7\'fb\'a3\'ac\'bc\'b4\'b2\'ce\'ca\'fdc\'a1\'a3\'c8\'f4\'b7\'b5\'bb\'d8EOF\'d4\'f2\'b4\'fa\'b1\'ed\'d0\'b4\'c8\'eb\'ca\'a7\'b0\'dc\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1FILE * fp;\par
+\'a1\'a1\'a1\'a1char a[26]=\rdblquote abcdefghijklmnopqrstuvwxyz\rdblquote ;\par
+\'a1\'a1\'a1\'a1int i;\par
+\'a1\'a1\'a1\'a1fp= fopen(\ldblquote noexist\rdblquote ,\rdblquote w\rdblquote );\par
+\'a1\'a1\'a1\'a1for(i=0;i<26;i++)\par
+\'a1\'a1\'a1\'a1fputc(a,fp);\par
+\'a1\'a1\'a1\'a1fclose(fp);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1fputs\'a3\'a8\'bd\'ab\'d2\'bb\'d6\'b8\'b6\'a8\'b5\'c4\'d7\'d6\'b7\'fb\'b4\'ae\'d0\'b4\'c8\'eb\'ce\'c4\'bc\'fe\'c4\'da\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acfwrite\'a3\'acfscanf\'a3\'acfputc\'a3\'acputc\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int fputs(const char * s,FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fputs()\'d3\'c3\'c0\'b4\'bd\'ab\'b2\'ce\'ca\'fds\'cb\'f9\'d6\'b8\'b5\'c4\'d7\'d6\'b7\'fb\'b4\'ae\'d0\'b4\'c8\'eb\'b5\'bd\'b2\'ce\'ca\'fdstream\'cb\'f9\'d6\'b8\'b5\'c4\'ce\'c4\'bc\'fe\'c4\'da\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'c8\'f4\'b3\'c9\'b9\'a6\'d4\'f2\'b7\'b5\'bb\'d8\'d0\'b4\'b3\'f6\'b5\'c4\'d7\'d6\'b7\'fb\'b8\'f6\'ca\'fd\'a3\'ac\'b7\'b5\'bb\'d8EOF\'d4\'f2\'b1\'ed\'ca\'be\'d3\'d0\'b4\'ed\'ce\'f3\'b7\'a2\'c9\'fa\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd \'c7\'eb\'b2\'ce\'bf\'bcfgets\'a3\'a8\'a3\'a9\'a1\'a3\par
+\'a1\'a1\'a1\'a1fread\'a3\'a8\'b4\'d3\'ce\'c4\'bc\'fe\'c1\'f7\'b6\'c1\'c8\'a1\'ca\'fd\'be\'dd\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acfwrite\'a3\'acfseek\'a3\'acfscanf\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd size_t fread(void * ptr,size_t size,size_t nmemb,FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fread()\'d3\'c3\'c0\'b4\'b4\'d3\'ce\'c4\'bc\'fe\'c1\'f7\'d6\'d0\'b6\'c1\'c8\'a1\'ca\'fd\'be\'dd\'a1\'a3\'b2\'ce\'ca\'fdstream\'ce\'aa\'d2\'d1\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'a3\'ac\'b2\'ce\'ca\'fdptr \'d6\'b8\'cf\'f2\'d3\'fb\'b4\'e6\'b7\'c5\'b6\'c1\'c8\'a1\'bd\'f8\'c0\'b4\'b5\'c4\'ca\'fd\'be\'dd\'bf\'d5\'bc\'e4\'a3\'ac\'b6\'c1\'c8\'a1\'b5\'c4\'d7\'d6\'b7\'fb\'ca\'fd\'d2\'d4\'b2\'ce\'ca\'fdsize*nmemb\'c0\'b4\'be\'f6\'b6\'a8\'a1\'a3Fread()\'bb\'e1\'b7\'b5\'bb\'d8\'ca\'b5\'bc\'ca\'b6\'c1\'c8\'a1\'b5\'bd\'b5\'c4nmemb\'ca\'fd\'c4\'bf\'a3\'ac\'c8\'e7\'b9\'fb\'b4\'cb\'d6\'b5\'b1\'c8\'b2\'ce\'ca\'fdnmemb \'c0\'b4\'b5\'c3\'d0\'a1\'a3\'ac\'d4\'f2\'b4\'fa\'b1\'ed\'bf\'c9\'c4\'dc\'b6\'c1\'b5\'bd\'c1\'cb\'ce\'c4\'bc\'fe\'ce\'b2\'bb\'f2\'d3\'d0\'b4\'ed\'ce\'f3\'b7\'a2\'c9\'fa\'a3\'ac\'d5\'e2\'ca\'b1\'b1\'d8\'d0\'eb\'d3\'c3feof()\'bb\'f2ferror()\'c0\'b4\'be\'f6\'b6\'a8\'b7\'a2\'c9\'fa\'ca\'b2\'c3\'b4\'c7\'e9\'bf\'f6\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'b7\'b5\'bb\'d8\'ca\'b5\'bc\'ca\'b6\'c1\'c8\'a1\'b5\'bd\'b5\'c4nmemb\'ca\'fd\'c4\'bf\'a1\'a3\par
+\par
+\'a1\'a1\'a1\'a1\'b8\'bd\'bc\'d3\'cb\'b5\'c3\'f7\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\par
+\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1#define nmemb 3\par
+\'a1\'a1\'a1\'a1struct test\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1char name[20];\par
+\'a1\'a1\'a1\'a1int size;\par
+\'a1\'a1\'a1\'a1\}s[nmemb];\par
+\'a1\'a1\'a1\'a1int main()\{\par
+\'a1\'a1\'a1\'a1FILE * stream;\par
+\'a1\'a1\'a1\'a1int i;\par
+\'a1\'a1\'a1\'a1stream = fopen(\ldblquote /tmp/fwrite\rdblquote ,\rdblquote r\rdblquote );\par
+\'a1\'a1\'a1\'a1fread(s,sizeof(struct test),nmemb,stream);\par
+\'a1\'a1\'a1\'a1fclose(stream);\par
+\'a1\'a1\'a1\'a1for(i=0;i<nmemb;i++)\par
+\'a1\'a1\'a1\'a1printf(\ldblquote name[%d]=%-20s:size[%d]=%d\\n\rdblquote ,i,s.name,i,s.size);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1\'d6\'b4\'d0\'d0\par
+\'a1\'a1\'a1\'a1name[0]=Linux! size[0]=6\par
+\'a1\'a1\'a1\'a1name[1]=FreeBSD! size[1]=8\par
+\'a1\'a1\'a1\'a1name[2]=Windows2000 size[2]=11\par
+\'a1\'a1\'a1\'a1freopen\'a3\'a8\'b4\'f2\'bf\'aa\'ce\'c4\'bc\'fe\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acfclose\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd FILE * freopen(const char * pathconst char * mode,FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 \'b2\'ce\'ca\'fdpath\'d7\'d6\'b7\'fb\'b4\'ae\'b0\'fc\'ba\'ac\'d3\'fb\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'c2\'b7\'be\'b6\'bc\'b0\'ce\'c4\'bc\'fe\'c3\'fb\'a3\'ac\'b2\'ce\'ca\'fdmode\'c7\'eb\'b2\'ce\'bf\'bcfopen()\'cb\'b5\'c3\'f7\'a1\'a3\'b2\'ce\'ca\'fdstream\'ce\'aa\'d2\'d1\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'a1\'a3Freopen()\'bb\'e1\'bd\'ab\'d4\'adstream\'cb\'f9\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'c1\'f7\'b9\'d8\'b1\'d5\'a3\'ac\'c8\'bb\'ba\'f3\'b4\'f2\'bf\'aa\'b2\'ce\'ca\'fdpath\'b5\'c4\'ce\'c4\'bc\'fe\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'ce\'c4\'bc\'fe\'cb\'b3\'c0\'fb\'b4\'f2\'bf\'aa\'ba\'f3\'a3\'ac\'d6\'b8\'cf\'f2\'b8\'c3\'c1\'f7\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'be\'cd\'bb\'e1\'b1\'bb\'b7\'b5\'bb\'d8\'a1\'a3\'c8\'e7\'b9\'fb\'ce\'c4\'bc\'fe\'b4\'f2\'bf\'aa\'ca\'a7\'b0\'dc\'d4\'f2\'b7\'b5\'bb\'d8NULL\'a3\'ac\'b2\'a2\'b0\'d1\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb\'b4\'e6\'d4\'daerrno \'d6\'d0\'a1\'a3\par
+\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1FILE * fp;\par
+\'a1\'a1\'a1\'a1fp=fopen(\ldblquote /etc/passwd\rdblquote ,\rdblquote r\rdblquote );\par
+\'a1\'a1\'a1\'a1fp=freopen(\ldblquote /etc/group\rdblquote ,\rdblquote r\rdblquote ,fp);\par
+\'a1\'a1\'a1\'a1fclose(fp);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1fseek\'a3\'a8\'d2\'c6\'b6\'af\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd rewind\'a3\'acftell\'a3\'acfgetpos\'a3\'acfsetpos\'a3\'aclseek\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int fseek(FILE * stream,long offset,int whence);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fseek()\'d3\'c3\'c0\'b4\'d2\'c6\'b6\'af\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'a1\'a3\'b2\'ce\'ca\'fdstream\'ce\'aa\'d2\'d1\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'a3\'ac\'b2\'ce\'ca\'fdoffset\'ce\'aa\'b8\'f9\'be\'dd\'b2\'ce\'ca\'fdwhence\'c0\'b4\'d2\'c6\'b6\'af\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'b5\'c4\'ce\'bb\'d2\'c6\'ca\'fd\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b2\'ce\'ca\'fd whence\'ce\'aa\'cf\'c2\'c1\'d0\'c6\'e4\'d6\'d0\'d2\'bb\'d6\'d6:\par
+\'a1\'a1\'a1\'a1SEEK_SET\'b4\'d3\'be\'e0\'ce\'c4\'bc\'fe\'bf\'aa\'cd\'b7offset\'ce\'bb\'d2\'c6\'c1\'bf\'ce\'aa\'d0\'c2\'b5\'c4\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'a1\'a3SEEK_CUR \'d2\'d4\'c4\'bf\'c7\'b0\'b5\'c4\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'cd\'f9\'ba\'f3\'d4\'f6\'bc\'d3offset\'b8\'f6\'ce\'bb\'d2\'c6\'c1\'bf\'a1\'a3\par
+\'a1\'a1\'a1\'a1SEEK_END\'bd\'ab\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'d6\'b8\'cf\'f2\'ce\'c4\'bc\'fe\'ce\'b2\'ba\'f3\'d4\'d9\'d4\'f6\'bc\'d3offset\'b8\'f6\'ce\'bb\'d2\'c6\'c1\'bf\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b5\'b1whence\'d6\'b5\'ce\'aaSEEK_CUR \'bb\'f2SEEK_END\'ca\'b1\'a3\'ac\'b2\'ce\'ca\'fdoffset\'d4\'ca\'d0\'ed\'b8\'ba\'d6\'b5\'b5\'c4\'b3\'f6\'cf\'d6\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'cf\'c2\'c1\'d0\'ca\'c7\'bd\'cf\'cc\'d8\'b1\'f0\'b5\'c4\'ca\'b9\'d3\'c3\'b7\'bd\'ca\'bd:\par
+\'a1\'a1\'a1\'a11) \'d3\'fb\'bd\'ab\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'d2\'c6\'b6\'af\'b5\'bd\'ce\'c4\'bc\'fe\'bf\'aa\'cd\'b7\'ca\'b1:fseek(FILE *stream,0,SEEK_SET);\par
+\'a1\'a1\'a1\'a12) \'d3\'fb\'bd\'ab\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'d2\'c6\'b6\'af\'b5\'bd\'ce\'c4\'bc\'fe\'ce\'b2\'ca\'b1:fseek(FILE *stream,0,0SEEK_END);\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'b5\'b1\'b5\'f7\'d3\'c3\'b3\'c9\'b9\'a6\'ca\'b1\'d4\'f2\'b7\'b5\'bb\'d80\'a3\'ac\'c8\'f4\'d3\'d0\'b4\'ed\'ce\'f3\'d4\'f2\'b7\'b5\'bb\'d8-1\'a3\'acerrno\'bb\'e1\'b4\'e6\'b7\'c5\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b8\'bd\'bc\'d3\'cb\'b5\'c3\'f7 fseek()\'b2\'bb\'cf\'f1lseek()\'bb\'e1\'b7\'b5\'bb\'d8\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'a3\'ac\'d2\'f2\'b4\'cb\'b1\'d8\'d0\'eb\'ca\'b9\'d3\'c3ftell()\'c0\'b4\'c8\'a1\'b5\'c3\'c4\'bf\'c7\'b0\'b6\'c1\'d0\'b4\'b5\'c4\'ce\'bb\'d6\'c3\'a1\'a3\par
+\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1FILE * stream;\par
+\'a1\'a1\'a1\'a1long offset;\par
+\'a1\'a1\'a1\'a1fpos_t pos;\par
+\'a1\'a1\'a1\'a1stream=fopen(\ldblquote /etc/passwd\rdblquote ,\rdblquote r\rdblquote );\par
+\'a1\'a1\'a1\'a1fseek(stream,5,SEEK_SET);\par
+\'a1\'a1\'a1\'a1printf(\ldblquote offset=%d\\n\rdblquote ,ftell(stream));\par
+\'a1\'a1\'a1\'a1rewind(stream);\par
+\'a1\'a1\'a1\'a1fgetpos(stream,&pos);\par
+\'a1\'a1\'a1\'a1printf(\ldblquote offset=%d\\n\rdblquote ,pos);\par
+\'a1\'a1\'a1\'a1pos=10;\par
+\'a1\'a1\'a1\'a1fsetpos(stream,&pos);\par
+\'a1\'a1\'a1\'a1printf(\ldblquote offset = %d\\n\rdblquote ,ftell(stream));\par
+\'a1\'a1\'a1\'a1fclose(stream);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1\'d6\'b4\'d0\'d0 offset = 5\par
+\'a1\'a1\'a1\'a1offset =0\par
+\'a1\'a1\'a1\'a1offset=10\par
+\'a1\'a1\'a1\'a1ftell\'a3\'a8\'c8\'a1\'b5\'c3\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'b6\'c1\'c8\'a1\'ce\'bb\'d6\'c3\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fseek\'a3\'acrewind\'a3\'acfgetpos\'a3\'acfsetpos\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd long ftell(FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 ftell()\'d3\'c3\'c0\'b4\'c8\'a1\'b5\'c3\'ce\'c4\'bc\'fe\'c1\'f7\'c4\'bf\'c7\'b0\'b5\'c4\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'a1\'a3\'b2\'ce\'ca\'fdstream\'ce\'aa\'d2\'d1\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'b5\'b1\'b5\'f7\'d3\'c3\'b3\'c9\'b9\'a6\'ca\'b1\'d4\'f2\'b7\'b5\'bb\'d8\'c4\'bf\'c7\'b0\'b5\'c4\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'a3\'ac\'c8\'f4\'d3\'d0\'b4\'ed\'ce\'f3\'d4\'f2\'b7\'b5\'bb\'d8-1\'a3\'acerrno\'bb\'e1\'b4\'e6\'b7\'c5\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb EBADF \'b2\'ce\'ca\'fdstream\'ce\'de\'d0\'a7\'bb\'f2\'bf\'c9\'d2\'c6\'b6\'af\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'b5\'c4\'ce\'c4\'bc\'fe\'c1\'f7\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd \'b2\'ce\'bf\'bcfseek()\'a1\'a3\par
+\'a1\'a1\'a1\'a1fwrite\'a3\'a8\'bd\'ab\'ca\'fd\'be\'dd\'d0\'b4\'d6\'c1\'ce\'c4\'bc\'fe\'c1\'f7\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acfread\'a3\'acfseek\'a3\'acfscanf\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd size_t fwrite(const void * ptr,size_t size,size_t nmemb,FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 fwrite()\'d3\'c3\'c0\'b4\'bd\'ab\'ca\'fd\'be\'dd\'d0\'b4\'c8\'eb\'ce\'c4\'bc\'fe\'c1\'f7\'d6\'d0\'a1\'a3\'b2\'ce\'ca\'fdstream\'ce\'aa\'d2\'d1\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'a3\'ac\'b2\'ce\'ca\'fdptr \'d6\'b8\'cf\'f2\'d3\'fb\'d0\'b4\'c8\'eb\'b5\'c4\'ca\'fd\'be\'dd\'b5\'d8\'d6\'b7\'a3\'ac\'d7\'dc\'b9\'b2\'d0\'b4\'c8\'eb\'b5\'c4\'d7\'d6\'b7\'fb\'ca\'fd\'d2\'d4\'b2\'ce\'ca\'fdsize*nmemb\'c0\'b4\'be\'f6\'b6\'a8\'a1\'a3Fwrite()\'bb\'e1\'b7\'b5\'bb\'d8\'ca\'b5\'bc\'ca\'d0\'b4\'c8\'eb\'b5\'c4nmemb\'ca\'fd\'c4\'bf\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'b7\'b5\'bb\'d8\'ca\'b5\'bc\'ca\'d0\'b4\'c8\'eb\'b5\'c4nmemb\'ca\'fd\'c4\'bf\'a1\'a3\par
+\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1#define set_s (x,y) \{strcoy(s[x].name,y);s[x].size=strlen(y);\}\par
+\'a1\'a1\'a1\'a1#define nmemb 3\par
+\'a1\'a1\'a1\'a1struct test\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1char name[20];\par
+\'a1\'a1\'a1\'a1int size;\par
+\'a1\'a1\'a1\'a1\}s[nmemb];\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1FILE * stream;\par
+\'a1\'a1\'a1\'a1set_s(0,\rdblquote Linux!\rdblquote );\par
+\'a1\'a1\'a1\'a1set_s(1,\rdblquote FreeBSD!\rdblquote );\par
+\'a1\'a1\'a1\'a1set_s(2,\rdblquote Windows2000.\rdblquote );\par
+\'a1\'a1\'a1\'a1stream=fopen(\ldblquote /tmp/fwrite\rdblquote ,\rdblquote w\rdblquote );\par
+\'a1\'a1\'a1\'a1fwrite(s,sizeof(struct test),nmemb,stream);\par
+\'a1\'a1\'a1\'a1fclose(stream);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1\'d6\'b4\'d0\'d0 \'b2\'ce\'bf\'bcfread\'a3\'a8\'a3\'a9\'a1\'a3\par
+\'a1\'a1\'a1\'a1getc\'a3\'a8\'d3\'c9\'ce\'c4\'bc\'fe\'d6\'d0\'b6\'c1\'c8\'a1\'d2\'bb\'b8\'f6\'d7\'d6\'b7\'fb\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd read\'a3\'acfopen\'a3\'acfread\'a3\'acfgetc\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int getc(FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 getc()\'d3\'c3\'c0\'b4\'b4\'d3\'b2\'ce\'ca\'fdstream\'cb\'f9\'d6\'b8\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'d0\'b6\'c1\'c8\'a1\'d2\'bb\'b8\'f6\'d7\'d6\'b7\'fb\'a1\'a3\'c8\'f4\'b6\'c1\'b5\'bd\'ce\'c4\'bc\'fe\'ce\'b2\'b6\'f8\'ce\'de\'ca\'fd\'be\'dd\'ca\'b1\'b1\'e3\'b7\'b5\'bb\'d8EOF\'a1\'a3\'cb\'e4\'c8\'bbgetc()\'d3\'ebfgetc()\'d7\'f7\'d3\'c3\'cf\'e0\'cd\'ac\'a3\'ac\'b5\'abgetc()\'ce\'aa\'ba\'ea\'b6\'a8\'d2\'e5\'a3\'ac\'b7\'c7\'d5\'e6\'d5\'fd\'b5\'c4\'ba\'af\'ca\'fd\'b5\'f7\'d3\'c3\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 getc()\'bb\'e1\'b7\'b5\'bb\'d8\'b6\'c1\'c8\'a1\'b5\'bd\'b5\'c4\'d7\'d6\'b7\'fb\'a3\'ac\'c8\'f4\'b7\'b5\'bb\'d8EOF\'d4\'f2\'b1\'ed\'ca\'be\'b5\'bd\'c1\'cb\'ce\'c4\'bc\'fe\'ce\'b2\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd \'b2\'ce\'bf\'bcfgetc()\'a1\'a3\par
+\'a1\'a1\'a1\'a1getchar\'a3\'a8\'d3\'c9\'b1\'ea\'d7\'bc\'ca\'e4\'c8\'eb\'c9\'e8\'b1\'b8\'c4\'da\'b6\'c1\'bd\'f8\'d2\'bb\'d7\'d6\'b7\'fb\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acfread\'a3\'acfscanf\'a3\'acgetc\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int getchar(void);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 getchar()\'d3\'c3\'c0\'b4\'b4\'d3\'b1\'ea\'d7\'bc\'ca\'e4\'c8\'eb\'c9\'e8\'b1\'b8\'d6\'d0\'b6\'c1\'c8\'a1\'d2\'bb\'b8\'f6\'d7\'d6\'b7\'fb\'a1\'a3\'c8\'bb\'ba\'f3\'bd\'ab\'b8\'c3\'d7\'d6\'b7\'fb\'b4\'d3unsigned char\'d7\'aa\'bb\'bb\'b3\'c9int\'ba\'f3\'b7\'b5\'bb\'d8\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 getchar()\'bb\'e1\'b7\'b5\'bb\'d8\'b6\'c1\'c8\'a1\'b5\'bd\'b5\'c4\'d7\'d6\'b7\'fb\'a3\'ac\'c8\'f4\'b7\'b5\'bb\'d8EOF\'d4\'f2\'b1\'ed\'ca\'be\'d3\'d0\'b4\'ed\'ce\'f3\'b7\'a2\'c9\'fa\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b8\'bd\'bc\'d3\'cb\'b5\'c3\'f7 getchar()\'b7\'c7\'d5\'e6\'d5\'fd\'ba\'af\'ca\'fd\'a3\'ac\'b6\'f8\'ca\'c7getc(stdin)\'ba\'ea\'b6\'a8\'d2\'e5\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdio.h>\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1FILE * fp;\par
+\'a1\'a1\'a1\'a1int c,i;\par
+\'a1\'a1\'a1\'a1for(i=0li<5;i++)\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1c=getchar();\par
+\'a1\'a1\'a1\'a1putchar(c);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1\}\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'d6\'b4\'d0\'d0 1234 /*\'ca\'e4\'c8\'eb*/\par
+\'a1\'a1\'a1\'a11234 /*\'ca\'e4\'b3\'f6*/\par
+\'a1\'a1\'a1\'a1gets\'a3\'a8\'d3\'c9\'b1\'ea\'d7\'bc\'ca\'e4\'c8\'eb\'c9\'e8\'b1\'b8\'c4\'da\'b6\'c1\'bd\'f8\'d2\'bb\'d7\'d6\'b7\'fb\'b4\'ae\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acfread\'a3\'acfscanf\'a3\'acfgets\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd char * gets(char *s);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 gets()\'d3\'c3\'c0\'b4\'b4\'d3\'b1\'ea\'d7\'bc\'c9\'e8\'b1\'b8\'b6\'c1\'c8\'eb\'d7\'d6\'b7\'fb\'b2\'a2\'b4\'e6\'b5\'bd\'b2\'ce\'ca\'fds\'cb\'f9\'d6\'b8\'b5\'c4\'c4\'da\'b4\'e6\'bf\'d5\'bc\'e4\'a3\'ac\'d6\'b1\'b5\'bd\'b3\'f6\'cf\'d6\'bb\'bb\'d0\'d0\'d7\'d6\'b7\'fb\'bb\'f2\'b6\'c1\'b5\'bd\'ce\'c4\'bc\'fe\'ce\'b2\'ce\'aa\'d6\'b9\'a3\'ac\'d7\'ee\'ba\'f3\'bc\'d3\'c9\'cfNULL\'d7\'f7\'ce\'aa\'d7\'d6\'b7\'fb\'b4\'ae\'bd\'e1\'ca\'f8\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 gets()\'c8\'f4\'b3\'c9\'b9\'a6\'d4\'f2\'b7\'b5\'bb\'d8s\'d6\'b8\'d5\'eb\'a3\'ac\'b7\'b5\'bb\'d8NULL\'d4\'f2\'b1\'ed\'ca\'be\'d3\'d0\'b4\'ed\'ce\'f3\'b7\'a2\'c9\'fa\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b8\'bd\'bc\'d3\'cb\'b5\'c3\'f7 \'d3\'c9\'d3\'dagets()\'ce\'de\'b7\'a8\'d6\'aa\'b5\'c0\'d7\'d6\'b7\'fb\'b4\'aes\'b5\'c4\'b4\'f3\'d0\'a1\'a3\'ac\'b1\'d8\'d0\'eb\'d3\'f6\'b5\'bd\'bb\'bb\'d0\'d0\'d7\'d6\'b7\'fb\'bb\'f2\'ce\'c4\'bc\'fe\'ce\'b2\'b2\'c5\'bb\'e1\'bd\'e1\'ca\'f8\'ca\'e4\'c8\'eb\'a3\'ac\'d2\'f2\'b4\'cb\'c8\'dd\'d2\'d7\'d4\'ec\'b3\'c9\'bb\'ba\'b3\'e5\'d2\'e7\'b3\'f6\'b5\'c4\'b0\'b2\'c8\'ab\'d0\'d4\'ce\'ca\'cc\'e2\'a1\'a3\'bd\'a8\'d2\'e9\'ca\'b9\'d3\'c3fgets()\'c8\'a1\'b4\'fa\'a1\'a3\par
+\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd \'b2\'ce\'bf\'bcfgets()\par
+\'a1\'a1\'a1\'a1mktemp\'a3\'a8\'b2\'fa\'c9\'fa\'ce\'a8\'d2\'bb\'b5\'c4\'c1\'d9\'ca\'b1\'ce\'c4\'bc\'fe\'c3\'fb\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd tmpfile\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdlib.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd char * mktemp(char * template);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 mktemp()\'d3\'c3\'c0\'b4\'b2\'fa\'c9\'fa\'ce\'a8\'d2\'bb\'b5\'c4\'c1\'d9\'ca\'b1\'ce\'c4\'bc\'fe\'c3\'fb\'a1\'a3\'b2\'ce\'ca\'fdtemplate\'cb\'f9\'d6\'b8\'b5\'c4\'ce\'c4\'bc\'fe\'c3\'fb\'b3\'c6\'d7\'d6\'b7\'fb\'b4\'ae\'d6\'d0\'d7\'ee\'ba\'f3\'c1\'f9\'b8\'f6\'d7\'d6\'b7\'fb\'b1\'d8\'d0\'eb\'ca\'c7XXXXXX\'a1\'a3\'b2\'fa\'c9\'fa\'ba\'f3\'b5\'c4\'ce\'c4\'bc\'fe\'c3\'fb\'bb\'e1\'bd\'e8\'d7\'d6\'b7\'fb\'b4\'ae\'d6\'b8\'d5\'eb\'b7\'b5\'bb\'d8\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'ce\'c4\'bc\'fe\'cb\'b3\'c0\'fb\'b4\'f2\'bf\'aa\'ba\'f3\'a3\'ac\'d6\'b8\'cf\'f2\'b8\'c3\'c1\'f7\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'be\'cd\'bb\'e1\'b1\'bb\'b7\'b5\'bb\'d8\'a1\'a3\'c8\'e7\'b9\'fb\'ce\'c4\'bc\'fe\'b4\'f2\'bf\'aa\'ca\'a7\'b0\'dc\'d4\'f2\'b7\'b5\'bb\'d8NULL\'a3\'ac\'b2\'a2\'b0\'d1\'b4\'ed\'ce\'f3\'b4\'fa\'c2\'eb\'b4\'e6\'d4\'daerrno\'d6\'d0\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b8\'bd\'bc\'d3\'cb\'b5\'c3\'f7 \'b2\'ce\'ca\'fdtemplate\'cb\'f9\'d6\'b8\'b5\'c4\'ce\'c4\'bc\'fe\'c3\'fb\'b3\'c6\'d7\'d6\'b7\'fb\'b4\'ae\'b1\'d8\'d0\'eb\'c9\'f9\'c3\'f7\'ce\'aa\'ca\'fd\'d7\'e9\'a3\'ac\'c8\'e7:\par
+\'a1\'a1\'a1\'a1char template[ ]=\rdblquote template-XXXXXX\rdblquote\'a3\'bb\par
+\'a1\'a1\'a1\'a1\'b2\'bb\'bf\'c9\'d3\'c3char * template=\rdblquote template-XXXXXX\rdblquote\'a3\'bb\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd\par
+\'a1\'a1\'a1\'a1#include<stdlib.h>\par
+\'a1\'a1\'a1\'a1main()\par
+\'a1\'a1\'a1\'a1\{\par
+\'a1\'a1\'a1\'a1char template[ ]=\rdblquote template-XXXXXX\rdblquote ;\par
+\'a1\'a1\'a1\'a1mktemp(template);\par
+\'a1\'a1\'a1\'a1printf(\ldblquote template=%s\\n\rdblquote ,template);\par
+\'a1\'a1\'a1\'a1\}\par
+\'a1\'a1\'a1\'a1putc\'a3\'a8\'bd\'ab\'d2\'bb\'d6\'b8\'b6\'a8\'d7\'d6\'b7\'fb\'d0\'b4\'c8\'eb\'ce\'c4\'bc\'fe\'d6\'d0\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acfwrite\'a3\'acfscanf\'a3\'acfputc\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int putc(int c,FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 putc()\'bb\'e1\'bd\'ab\'b2\'ce\'ca\'fdc\'d7\'aa\'ce\'aaunsigned char\'ba\'f3\'d0\'b4\'c8\'eb\'b2\'ce\'ca\'fdstream\'d6\'b8\'b6\'a8\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'d0\'a1\'a3\'cb\'e4\'c8\'bbputc()\'d3\'ebfputc()\'d7\'f7\'d3\'c3\'cf\'e0\'cd\'ac\'a3\'ac\'b5\'abputc()\'ce\'aa\'ba\'ea\'b6\'a8\'d2\'e5\'a3\'ac\'b7\'c7\'d5\'e6\'d5\'fd\'b5\'c4\'ba\'af\'ca\'fd\'b5\'f7\'d3\'c3\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 putc()\'bb\'e1\'b7\'b5\'bb\'d8\'d0\'b4\'c8\'eb\'b3\'c9\'b9\'a6\'b5\'c4\'d7\'d6\'b7\'fb\'a3\'ac\'bc\'b4\'b2\'ce\'ca\'fdc\'a1\'a3\'c8\'f4\'b7\'b5\'bb\'d8EOF\'d4\'f2\'b4\'fa\'b1\'ed\'d0\'b4\'c8\'eb\'ca\'a7\'b0\'dc\'a1\'a3\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd \'b2\'ce\'bf\'bcfputc\'a3\'a8\'a3\'a9\'a1\'a3\par
+\'a1\'a1\'a1\'a1putchar\'a3\'a8\'bd\'ab\'d6\'b8\'b6\'a8\'b5\'c4\'d7\'d6\'b7\'fb\'d0\'b4\'b5\'bd\'b1\'ea\'d7\'bc\'ca\'e4\'b3\'f6\'c9\'e8\'b1\'b8\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fopen\'a3\'acfwrite\'a3\'acfscanf\'a3\'acfputc\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int putchar (int c);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 putchar()\'d3\'c3\'c0\'b4\'bd\'ab\'b2\'ce\'ca\'fdc\'d7\'d6\'b7\'fb\'d0\'b4\'b5\'bd\'b1\'ea\'d7\'bc\'ca\'e4\'b3\'f6\'c9\'e8\'b1\'b8\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 putchar()\'bb\'e1\'b7\'b5\'bb\'d8\'ca\'e4\'b3\'f6\'b3\'c9\'b9\'a6\'b5\'c4\'d7\'d6\'b7\'fb\'a3\'ac\'bc\'b4\'b2\'ce\'ca\'fdc\'a1\'a3\'c8\'f4\'b7\'b5\'bb\'d8EOF\'d4\'f2\'b4\'fa\'b1\'ed\'ca\'e4\'b3\'f6\'ca\'a7\'b0\'dc\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b8\'bd\'bc\'d3\'cb\'b5\'c3\'f7 putchar()\'b7\'c7\'d5\'e6\'d5\'fd\'ba\'af\'ca\'fd\'a3\'ac\'b6\'f8\'ca\'c7putc(c\'a3\'acstdout)\'ba\'ea\'b6\'a8\'d2\'e5\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd \'b2\'ce\'bf\'bcgetchar()\'a1\'a3\par
+\'a1\'a1\'a1\'a1rewind\'a3\'a8\'d6\'d8\'c9\'e8\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'ce\'aa\'ce\'c4\'bc\'fe\'bf\'aa\'cd\'b7\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fseek\'a3\'acftell\'a3\'acfgetpos\'a3\'acfsetpos\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd void rewind(FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 rewind()\'d3\'c3\'c0\'b4\'b0\'d1\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'b6\'c1\'d0\'b4\'ce\'bb\'d6\'c3\'d2\'c6\'d6\'c1\'ce\'c4\'bc\'fe\'bf\'aa\'cd\'b7\'a1\'a3\'b2\'ce\'ca\'fdstream\'ce\'aa\'d2\'d1\'b4\'f2\'bf\'aa\'b5\'c4\'ce\'c4\'bc\'fe\'d6\'b8\'d5\'eb\'a1\'a3\'b4\'cb\'ba\'af\'ca\'fd\'cf\'e0\'b5\'b1\'d3\'da\'b5\'f7\'d3\'c3fseek(stream,0,SEEK_SET)\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5\par
+\par
+\'a1\'a1\'a1\'a1\'b7\'b6\'c0\'fd \'b2\'ce\'bf\'bcfseek()\par
+\'a1\'a1\'a1\'a1setbuf\'a3\'a8\'c9\'e8\'d6\'c3\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'bb\'ba\'b3\'e5\'c7\'f8\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd setbuffer\'a3\'acsetlinebuf\'a3\'acsetvbuf\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd void setbuf(FILE * stream,char * buf);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 \'d4\'da\'b4\'f2\'bf\'aa\'ce\'c4\'bc\'fe\'c1\'f7\'ba\'f3\'a3\'ac\'b6\'c1\'c8\'a1\'c4\'da\'c8\'dd\'d6\'ae\'c7\'b0\'a3\'ac\'b5\'f7\'d3\'c3setbuf()\'bf\'c9\'d2\'d4\'d3\'c3\'c0\'b4\'c9\'e8\'d6\'c3\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'bb\'ba\'b3\'e5\'c7\'f8\'a1\'a3\'b2\'ce\'ca\'fdstream\'ce\'aa\'d6\'b8\'b6\'a8\'b5\'c4\'ce\'c4\'bc\'fe\'c1\'f7\'a3\'ac\'b2\'ce\'ca\'fdbuf\'d6\'b8\'cf\'f2\'d7\'d4\'b6\'a8\'b5\'c4\'bb\'ba\'b3\'e5\'c7\'f8\'c6\'f0\'ca\'bc\'b5\'d8\'d6\'b7\'a1\'a3\'c8\'e7\'b9\'fb\'b2\'ce\'ca\'fdbuf\'ce\'aaNULL\'d6\'b8\'d5\'eb\'a3\'ac\'d4\'f2\'ce\'aa\'ce\'de\'bb\'ba\'b3\'e5IO\'a1\'a3Setbuf()\'cf\'e0\'b5\'b1\'d3\'da\'b5\'f7\'d3\'c3:setvbuf(stream,buf,buf?_IOFBF:_IONBF,BUFSIZ)\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5\par
+\'a1\'a1\'a1\'a1setbuffer\'a3\'a8\'c9\'e8\'d6\'c3\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'bb\'ba\'b3\'e5\'c7\'f8\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd setlinebuf\'a3\'acsetbuf\'a3\'acsetvbuf\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd void setbuffer(FILE * stream,char * buf,size_t size);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 \'d4\'da\'b4\'f2\'bf\'aa\'ce\'c4\'bc\'fe\'c1\'f7\'ba\'f3\'a3\'ac\'b6\'c1\'c8\'a1\'c4\'da\'c8\'dd\'d6\'ae\'c7\'b0\'a3\'ac\'b5\'f7\'d3\'c3setbuffer()\'bf\'c9\'d3\'c3\'c0\'b4\'c9\'e8\'d6\'c3\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'bb\'ba\'b3\'e5\'c7\'f8\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b2\'ce\'ca\'fdstream\'ce\'aa\'d6\'b8\'b6\'a8\'b5\'c4\'ce\'c4\'bc\'fe\'c1\'f7\'a3\'ac\'b2\'ce\'ca\'fdbuf\'d6\'b8\'cf\'f2\'d7\'d4\'b6\'a8\'b5\'c4\'bb\'ba\'b3\'e5\'c7\'f8\'c6\'f0\'ca\'bc\'b5\'d8\'d6\'b7\'a3\'ac\'b2\'ce\'ca\'fdsize\'ce\'aa\'bb\'ba\'b3\'e5\'c7\'f8\'b4\'f3\'d0\'a1\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5\par
+\'a1\'a1\'a1\'a1setlinebuf\'a3\'a8\'c9\'e8\'d6\'c3\'ce\'c4\'bc\'fe\'c1\'f7\'ce\'aa\'cf\'df\'d0\'d4\'bb\'ba\'b3\'e5\'c7\'f8\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd setbuffer\'a3\'acsetbuf\'a3\'acsetvbuf\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd void setlinebuf(FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 setlinebuf()\'d3\'c3\'c0\'b4\'c9\'e8\'d6\'c3\'ce\'c4\'bc\'fe\'c1\'f7\'d2\'d4\'bb\'bb\'d0\'d0\'ce\'aa\'d2\'c0\'be\'dd\'b5\'c4\'ce\'de\'bb\'ba\'b3\'e5IO\'a1\'a3\'cf\'e0\'b5\'b1\'d3\'da\'b5\'f7\'d3\'c3:setvbuf(stream,(char * )NULL,_IOLBF,0);\'c7\'eb\'b2\'ce\'bf\'bcsetvbuf()\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5\par
+\'a1\'a1\'a1\'a1setvbuf\'a3\'a8\'c9\'e8\'d6\'c3\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'bb\'ba\'b3\'e5\'c7\'f8\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd setbuffer\'a3\'acsetlinebuf\'a3\'acsetbuf\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int setvbuf(FILE * stream,char * buf,int mode,size_t size);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 \'d4\'da\'b4\'f2\'bf\'aa\'ce\'c4\'bc\'fe\'c1\'f7\'ba\'f3\'a3\'ac\'b6\'c1\'c8\'a1\'c4\'da\'c8\'dd\'d6\'ae\'c7\'b0\'a3\'ac\'b5\'f7\'d3\'c3setvbuf()\'bf\'c9\'d2\'d4\'d3\'c3\'c0\'b4\'c9\'e8\'d6\'c3\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'bb\'ba\'b3\'e5\'c7\'f8\'a1\'a3\'b2\'ce\'ca\'fdstream\'ce\'aa\'d6\'b8\'b6\'a8\'b5\'c4\'ce\'c4\'bc\'fe\'c1\'f7\'a3\'ac\'b2\'ce\'ca\'fdbuf\'d6\'b8\'cf\'f2\'d7\'d4\'b6\'a8\'b5\'c4\'bb\'ba\'b3\'e5\'c7\'f8\'c6\'f0\'ca\'bc\'b5\'d8\'d6\'b7\'a3\'ac\'b2\'ce\'ca\'fdsize\'ce\'aa\'bb\'ba\'b3\'e5\'c7\'f8\'b4\'f3\'d0\'a1\'a3\'ac\'b2\'ce\'ca\'fdmode\'d3\'d0\'cf\'c2\'c1\'d0\'bc\'b8\'d6\'d6\par
+\'a1\'a1\'a1\'a1_IONBF \'ce\'de\'bb\'ba\'b3\'e5IO\par
+\'a1\'a1\'a1\'a1_IOLBF \'d2\'d4\'bb\'bb\'d0\'d0\'ce\'aa\'d2\'c0\'be\'dd\'b5\'c4\'ce\'de\'bb\'ba\'b3\'e5IO\par
+\'a1\'a1\'a1\'a1_IOFBF \'cd\'ea\'c8\'ab\'ce\'de\'bb\'ba\'b3\'e5IO\'a1\'a3\'c8\'e7\'b9\'fb\'b2\'ce\'ca\'fdbuf\'ce\'aaNULL\'d6\'b8\'d5\'eb\'a3\'ac\'d4\'f2\'ce\'aa\'ce\'de\'bb\'ba\'b3\'e5IO\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5\par
+\'a1\'a1\'a1\'a1ungetc\'a3\'a8\'bd\'ab\'d6\'b8\'b6\'a8\'d7\'d6\'b7\'fb\'d0\'b4\'bb\'d8\'ce\'c4\'bc\'fe\'c1\'f7\'d6\'d0\'a3\'a9\par
+\'a1\'a1\'a1\'a1\'cf\'e0\'b9\'d8\'ba\'af\'ca\'fd fputc\'a3\'acgetchar\'a3\'acgetc\par
+\'a1\'a1\'a1\'a1\'b1\'ed\'cd\'b7\'ce\'c4\'bc\'fe #include<stdio.h>\par
+\'a1\'a1\'a1\'a1\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd int ungetc(int c,FILE * stream);\par
+\'a1\'a1\'a1\'a1\'ba\'af\'ca\'fd\'cb\'b5\'c3\'f7 ungetc()\'bd\'ab\'b2\'ce\'ca\'fdc\'d7\'d6\'b7\'fb\'d0\'b4\'bb\'d8\'b2\'ce\'ca\'fdstream\'cb\'f9\'d6\'b8\'b6\'a8\'b5\'c4\'ce\'c4\'bc\'fe\'c1\'f7\'a1\'a3\'d5\'e2\'b8\'f6\'d0\'b4\'bb\'d8\'b5\'c4\'d7\'d6\'b7\'fb\'bb\'e1\'d3\'c9\'cf\'c2\'d2\'bb\'b8\'f6\'b6\'c1\'c8\'a1\'ce\'c4\'bc\'fe\'c1\'f7\'b5\'c4\'ba\'af\'ca\'fd\'c8\'a1\'b5\'c3\'a1\'a3\par
+\'a1\'a1\'a1\'a1\'b7\'b5\'bb\'d8\'d6\'b5 \'b3\'c9\'b9\'a6\'d4\'f2\'b7\'b5\'bb\'d8c \'d7\'d6\'b7\'fb\'a3\'ac\'c8\'f4\'d3\'d0\'b4\'ed\'ce\'f3\'d4\'f2\'b7\'b5\'bb\'d8EOF\'a1\'a3\par
+}
+ 

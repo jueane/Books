@@ -1,0 +1,191 @@
+定制ubuntu8.04 所需条件
+1.   需要一张 ubuntu8.04 alternate-i386 的可以安装的光盘 例如 ubuntu-8.04.2-alternate-i386
+2.   网络要求: 必须是局域网的而且是不需要拨号就可以上网的电脑,就是说 只要简单配置好 IP   子网掩码   网关 DNS   马上就可以上网的电脑 其他上网方式的电脑不适合
+
+定制安装的源的问题 要先解决   我用的办法是 先自己做一个 8.04的源的文件就是 sources.list 放在C盘（注意C盘必须是FAT格式的）   等安装好文本系统的时候 挂载C盘   然后把c盘里的sources.list复制到/etc/apt 中   这样就轻松解决了源列表的问题  
+
+接下就是安装文本系统了   放进光盘后 在选择安装模式的时候 按 F4   选择安装 文本系统  
+开始安装文本系统   前面的网络的设置非常重要 一定要配置好 而且要确保配置好了 文本系统安装好了马上可以上网  （抄下下面红色的命令 命令都是小写的   保存安装的时候用到的 以后也用得着的）这个相当重要
+安装好 文本系统 以后 登陆  
+接着就处理源列表的问题了
+这样就要挂载你的 C盘了  
+先用 sudo fdisk -l 命令 看看你的硬盘分区情况
+一般是出现  
+/dev/hda1 …………（一般IDE硬盘是这样的）
+或者
+/dev/sda1           (一般的SATA硬盘出现这个 有时候IDE的也出现这个的）
+
+假如是 /dev/hda1 然后就是挂载硬盘 命令
+sudo mount -t vfat /dev/hda1 /mnt
+
+假如是 /dev/sda1 然后就是挂载硬盘 命令
+sudo mount -t vfat /dev/sda1 /mnt
+这样之前你 在C盘的东西 就挂在在 /mnt 里了   (这里只是暂时挂载   重启后会失效的）
+
+之前已经做好了 sources.list 修改源列表
+sudo cp /mnt/sources.list   /etc/apt
+sudo apt-get update  
+
+把光盘做为源先把光盘放入光驱然后 命令
+sudo apt-cdrom add
+（这样可以大大缩短安装的时间） 这样的话 源的问题就解决了
+
+就是安装软件了  注意了红色部分的命令要文本界面下执行的 所以先抄下来
+
+先基本安装图形系统
+sudo apt-get install xorg
+
+安装GNOME的窗口管理器
+sudo apt-get install gdm
+
+安装 拼音输入法 和 文泉字体
+sudo apt-get install scim scim-pinyin xfonts-wqh
+
+安装文本编辑器
+sudo apt-get install gedit
+
+安装 终端
+sudo apt-get install   gnome-terminal
+
+安装 火狐狸浏览器
+sudo apt-get install   firefox
+
+安装声卡驱动
+sudo apt-get install   alsa-tools alsa-utils alsa-base gnome-alsamixer gnome-volume-manager
+（安装完了在图形系统下的 影音 里面个有声音的管理器 前3个选项不要静音 系统就有声音了
+
+如果你的处理器支持自动变频和节能，那么你最好安装上powernowd，对AMD和Intel都适用，虽然当初是为AMD设计的，强烈建议笔记本安装：
+sudo apt-get install powernowd
+
+安装 GNOME
+sudo apt-get install gnome-core
+然后就 startx 进入 桌面了
+
+修改目前的用户有安装的软件的使用权限sudo chown -hR 登录系统的用户名 /home/ 接下来就打开终端 复制你喜欢的下面的东西吧
+
+    PS： 要是 遇到依赖问题无法安装的软件包   就 先 CARL+C 停下来   用命令解决依赖问题
+
+sudo apt-get install -f
+
+这样还是不行的话 就之前在 代码里面去掉 无法安装软件包   只安装剩下的软件包也是没有影响的
+安装 gdebi   安装了这个才能在图形界面里双击deb包安装软件
+sudo apt-get install gdebi
+
+安装Gnome桌面:
+
+sudo apt-get install gnome-session gnome-menus gnome-panel metacity nautilus
+
+如果你想完全使用Gnome作为桌面的话你还需要安装：
+
+sudo apt-get install gnome-applets gnome-control-center gnome-volume-manager libsmbclient gnome-screensaver menu network-manager-gnome gnome-utils gnome-system-tools gnome-netstatus-applet gnome-nettool libgnomevfs2-extra
+
+安装系统ubuntu主题等：
+
+sudo apt-get install ubuntu-artwork ubuntu-sounds human-theme usplash-theme-ubuntu
+
+如果你想用gnome自带的那么：
+
+安装图形化工具，让你管理软件和驱动更容易 安装了这个就有受限制驱动了 就可以安装显卡驱动了
+
+sudo apt-get install gnome-app-install update-manager restricted-manager ubuntu-restricted-extras jockey-gtk
+
+系统声音
+
+sudo apt-get install esound
+
+系统硬件监视器
+
+sudo apt-get install   gnome-system-monitor  
+
+安装中文语言
+
+sudo apt-get install   lightning-extension-locale-zh-cn language-pack-zh   language-pack-zh language-pack-gnome-zh   language-pack-zh-base   language-pack-kde-zh language-pack-gnome-zh-base quick-reference-zh-cn language-support-fonts-zh language-support-input-zh language-support-translations-za   language-support-zh language-pack-gnome-zh-base language-pack-gnome-zh   language-pack-zh-base language-pack-zh ttf-arphic-ukai ttf-wqy-zenhei language-support-fonts-zh
+
+以下是其其他的软件   假如你在UB下打开你WIN下的分区 发现里面的文件名字都是问号   就是因为没有安装中文语言 安装了上面的中文语言 就OK了
+右击添加管理员模式打开   (重启才能生效）
+sudo apt-get install nautilus-gksu
+
+自动加载移动硬盘
+sudo apt-get install lxsession   gnome-volume-manager  
+
+安装如下的包,补充一下比较必要的功能(看各人需要自己进行选择,包的描述是是根据自己理解写的,有的可能不太正确,请见谅):
+
+   1. acpi --------------------------acpi电源管理软件包
+   2. acpi-support --------------------------acpi电源管理软件包
+   3. acpid --------------------------acpi电源管理软件包
+   4. alien --------------------------管理除deb以外的其他格式的软件包
+   5. apmd --------------------------Utilities for Advanced Power Management (APM)
+   6. cupsys --------------------------打印服务支持
+   7. cupsys-bsd --------------------------打印服务支持
+   8. cupsys-client --------------------------打印服务支持
+   9. cupsys-driver-gimpprint -------------------------gimp图象处理软件打印服务支持(最好先装gimp再装)
+  10. cupsys-driver-gimpprint-data --------------------gimp图象处理软件打印服务支持（最好先装gimp再装)
+  11. esound --------------------------esound驱动
+  12. file-roller --------------------------归档管理器(先装unzip,unrar等)
+  13. foomatic-db --------------------------linuxprinting.org printer support
+  14. foomatic-db-engine
+  15. foomatic-db-gimp-print
+  16. foomatic-db-hpijs
+  17. foomatic-filters
+  18. foomatic-filters-ppds ----------------------------linuxprinting.org printer support
+  19. gconf-editor ----------------- ----------配置编辑器
+  20. gnome-cups-manager ----------------------------gnome打印器管理器
+  21. gnome-netstatus-applet ----------------------------Network status applet for GNOME 2
+  22. gnome-nettool -----------------------------Network information tool for GNOME
+  23. gnome-system-monitor ----------------------------Process viewer and system resource monitor for GNOME 2
+  24. gnome-system-tools ------------------------- --Cross-platform configuration utilities for GNOME(Users and groups,Date and time,Network configuration,Bootloaders)
+  25. gnome-utils ----------------------------包括gfloppy， gnome-system-log，gnome-dictionary搜索等一些桌面工具
+  26. gnome-volume-manager -------------------------可移动驱动器和介质
+  27. language-pack-zh -------------------------gnome基本的简体语言环境
+  28. language-pack-zh-base -------------------------gnome基本的简体语言环境
+  29. libgnome2-perl --------------------------好象是gnome2前端界面配置需要的相关文件
+  30. mozilla-firefox-locale-zh-cn ------------------firefox简体语言包
+  31. powermanagement-interface -----------------------platform neutral powermanagement interface
+  32. powernowd --------------------------------------control cpu speed and voltage using 2.6 kernel interface
+  33. sane-utils--------------------------------------API library for scanners -- utilities
+  34. smbclient --------------------------------------查看windows(smb)网络所需要文件
+  35. synaptic --------------------------------------新立得包管理器
+  36. x-ttcidfont-conf-------------------------------Configure TrueType and CID fonts for X X系统的字体配置程序
+  37. xsane-----------------------------------------GTK+-based X11 frontend for SANE (Scanner Access Now Easy)
+  38. gnome-audio----------------------------------gnome事件音效文件包[code]
+  39. (六)如觉得有需要,可以考虑安装的软件包(不过本人这些都没有安装,是为了运行得更快)
+  40. [code]gcalctool -------------------------------计算器
+  41. gnome-app-install -------------------------------ubuntu-gnome桌面环境软件的安装管理器
+  42. gnome-about -------------------------------关于gnome
+  43. gnome-pilot -------------------------------A GNOME applet for management of your Palm PDA
+  44. gnome-pilot-conduits --------------------------------conduits for gnome-pilot
+  45. gnome-themes -------------------------------gnome主题
+  46. gucharmap --------------------------------字符映射表
+  47. hal-device-manager ---------------------------------Hardware Abstraction Layer user interface
+  48. mkisofs --------------------------------Creates ISO-9660 CD-ROM filesystem images
+  49. nautilus-cd-burner --------------------------------nautilus的cd刻录程序
+  50. tsclient --------------------------------终端服务客户端
+  51. update-manager --------------------------------Ubuntu 更新管理器
+  52. update-notifier --------------------------------Ubuntu 更新提醒器
+  53. vino --------------------------------远程桌面
+  54. gnomemeeting --------------------------------gnome网络会议
+
+复制代码
+
+(八)可以安装的一些常用软件参考
+
+   1. qt3-qtconfig -----------qt程序界面设置
+   2. opera(使用插件需要libmotif3包支持）
+   3. sun-j2re1.5 ----------java程序运行环境
+   4. prozgui 下载软件
+   5. gaim或kopete通讯软件
+   6. gthumb看图软件
+   7. xchatIRC
+   8. gimp图象处理软件
+   9. Meld-----------文件\目录\cvs比较工具
+  10. beep media player音乐播放
+  11. Qalculate(一个功能非常强大的计算器，不仅仅是计算器，竟然可以解决二元方程、积分、调用gnu,plot绘图等 )
+  12. totem-xine和w32codecs----------------视频播放软件和解码器
+  13. open office
+  14. stardict英汉辞典及相关字典库
+  15. gentoo和mc或rox-filer文件管理器
+  16. lumaqq(聊QQ软件)
+  17. Azureus(bt下载软件)
+  18. skype通讯软件
+  19. Thunderbird或sylpheed(查看html邮件需dillo支持)或其他email软件
+

